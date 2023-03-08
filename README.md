@@ -1,4 +1,5 @@
-# gradetools workshop 
+# gradetools workshop  <img src='gradetools-logo.png' align="right" width="200" alt="a hex shaped logo with a cat in front of a laptop sending out paper planes and a notepad with A+ on it. The logo reads gradetools"/>
+
 
 This repo hosts material for the workshop _Automate your grading workflow with gradetools: a grading assistant in RStudio_ that will be held on June 1st, 2023 from 1:00 to 4:30pm ET during the [USCOTS 2023](https://www.causeweb.org/cause/uscots/uscots23) conference.
 
