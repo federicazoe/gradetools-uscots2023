@@ -2,7 +2,7 @@
 
 **Note: The repo is currently under construction. Material will be finalized one week prior to the workshop.**
 
-This repo hosts material for the workshop [_Automate your grading workflow with gradetools: a grading assistant in RStudio_](https://www.causeweb.org/cause/uscots/uscots23/w12-automate-your-grading-workflow-gradetools-grading-assistant-rstudio-room-105) that will be held on June 1st, 2023 from 1:00 to 4:30pm ET during the [USCOTS 2023](https://www.causeweb.org/cause/uscots/uscots23) conference.
+This repo hosts material for the workshop [_Automate your grading workflow with gradetools: a grading assistant in RStudio_](https://www.causeweb.org/cause/uscots/uscots23/w12-automate-your-grading-workflow-gradetools-grading-assistant-rstudio-room-105) that will be held on June 1st, 2023 from 1:00 to 4:30pm ET during the [USCOTS 2023](https://www.causeweb.org/cause/uscots/uscots23) conference (Room 105).
 
 Please fill out this brief [pre-workshop survey](https://docs.google.com/forms/d/e/1FAIpQLSfeZjPRRNA3SqXNiOBHCsOSqJE7SweW7dbG4-YbmkGdu9uvCw/viewform?usp=sf_link) by Monday, May 29th.
 
