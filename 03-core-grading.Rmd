@@ -1,0 +1,75 @@
+---
+output:
+  xaringan::moon_reader:
+    css: ["utils/style.css","https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css", "xaringan-themer.css"]
+    lib_dir: libs
+    nature:
+      ratio: 16:9
+      highlightStyle: solarized-light
+      highlightLines: true
+      countIncrementalSlides: true
+      beforeInit: "utils/cols_macro.js"
+---
+
+class: middle, center
+
+# Core functionalities
+
+---
+
+class: middle, center
+
+<div class="row">
+  <div class="column_left">
+    <img src="figures/final-diagram-left-4.png" alt="A box labeled '1 Preparation' with three boxes contained within: 'obtain the roster' (shaded gray), 'create the rubric' (shaded yellow), 'retrieve the assignment' (shaded gray). Another box labeled input with three bullet points: roster, rubric, and assignments" style="width:100%">
+  </div>
+  <div class="column_center">
+    <img src="figures/final-diagram-center-3.png" alt="Three rounded rectangles of yellow color saying 'automatically open/close assignment files', 'assign scores and feedback to each assignment given the applied rubric items', and 'store grading progress'. Below this rounded rectangle is blank space as if more rectangles are still not shown." style="width:100%">
+  </div>
+  <div class="column_right">
+    <img src="figures/final-diagram-right-3.png" alt="A box labeled output with three bullet points: grade sheet, feedback files, and GitHub issues." style="width:100%">
+  </div>
+</div>
+
+
+---
+
+class: middle, left
+
+## Function call
+
+To begin grading the assignments from the demo
+```{r, eval = FALSE}
+assist_grading(
+  rubric_path = "rubric-full.csv", 
+  roster_path = "roster-minimal.csv", 
+  grading_progress_log_path = "quiz01-grading-progress-log.csv", 
+  final_grade_sheet_path = "quiz01-final-grade-sheet.csv", 
+  example_student_identifier = "BaronPoisson",
+  example_assignment_path = here::here("quiz01", "quiz01-BaronPoisson.Rmd"), 
+  example_feedback_path = here::here("quiz01", "quiz01-BaronPoisson-feedback.Rmd")
+)
+```
+
+
+---
+
+class: middle, left
+
+## Hands-on session: using existing rubric items
+
+First grade one question, stop, and examine the feedback file.  
+Then resume grading and finish grading an entire submission.
+
+Example function call 
+```{r, eval = FALSE}
+assist_grading(
+  rubric_path = "rubric-full.csv", 
+  roster_path = "roster-minimal.csv", 
+  grading_progress_log_path = "quiz01-grading-progress-log.csv", 
+  final_grade_sheet_path = "quiz01-final-grade-sheet.csv", 
+  example_student_identifier = "BaronPoisson",
+  example_assignment_path = "quiz01/quiz01-BaronPoisson.Rmd", 
+  example_feedback_path = "quiz01/quiz01-BaronPoisson-feedback.Rmd"
+)
+```

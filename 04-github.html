@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>04-github.knit</title>
+    <meta charset="utf-8" />
+    <script src="libs/header-attrs-2.21/header-attrs.js"></script>
+    <link rel="stylesheet" href="utils/style.css" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" type="text/css" />
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+
+class: middle, center
+
+# gradetools **+** GitHub
+
+
+---
+
+class: middle, center
+
+&lt;div class="row"&gt;
+  &lt;div class="column_left"&gt;
+    &lt;img src="figures/final-diagram-left-4.png" alt="" style="width:100%"&gt;
+  &lt;/div&gt;
+  &lt;div class="column_center"&gt;
+    &lt;img src="figures/final-diagram-center-blue-3.png" alt="Below, a rounded rectangle of light blue color saying 'add new rubric items while grading'. Below, another rounded rectangle of light blue color saying 'give personalized feedback'. Below, another rounded rectangle of light blue color saying 'regrade specified questions and specified students'. Below this last rounded rectangle, some blank space as if more rectangles are still not shown. At the bottom, a legend that says 'gradetools' and 'yellow' for core, 'additional' for light blue." style="width:100%"&gt;
+  &lt;/div&gt;
+  &lt;div class="column_right"&gt;
+    &lt;img src="figures/final-diagram-right-3.png" alt="'" style="width:100%"&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+---
+
+class: middle, center
+
+&lt;div class="row"&gt;
+  &lt;div class="column_left"&gt;
+    &lt;img src="figures/final-diagram-left-4.png" alt="" style="width:100%"&gt;
+  &lt;/div&gt;
+  &lt;div class="column_center"&gt;
+    &lt;img src="figures/final-diagram-center.png" alt="Below, a rounded rectangle of light blue color saying 'add new rubric items while grading'. Below, another rounded rectangle of light blue color saying 'give personalized feedback'. Below, another rounded rectangle of light blue color saying 'regrade specified questions and specified students'. Below, another rounded rectangle of light blue color saying 'take note of GitHub issues to be created in students' repos. At the bottom, a legend that says 'gradetools' and 'yellow' for core, 'additional' for light blue." style="width:100%"&gt;
+  &lt;/div&gt;
+  &lt;div class="column_right"&gt;
+    &lt;img src="figures/final-diagram-right-3-github.png" alt="" style="width:100%"&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+---
+
+class: middle, center
+
+&lt;div class="row"&gt;
+  &lt;div class="column_left"&gt;
+    &lt;img src="figures/final-diagram-left.png" alt="Snow" style="width:100%"&gt;
+  &lt;/div&gt;
+  &lt;div class="column_center"&gt;
+    &lt;img src="figures/final-diagram-center.png" alt="Below, a rounded rectangle of light blue color saying 'add new rubric items while grading'. Below, another rounded rectangle of light blue color saying 'give personalized feedback'. Below, another rounded rectangle of light blue color saying 'regrade specified questions and specified students'. Below, another rounded rectangle of light blue color saying 'take note of GitHub issues to be created in students' repos. At the bottom, a legend that says 'gradetools' and 'yellow' for core, 'additional' for light blue." style="width:100%"&gt;
+  &lt;/div&gt;
+  &lt;div class="column_right"&gt;
+    &lt;img src="figures/final-diagram-right.png" alt="The square where the outputs are listed is linked to text box that reads '3. Finalization', which is the header of a rounded transparent rectangle around two gray-filled rounded rectangles that read 'upload the grade sheet' and 'distribute the feedback'. Nested within this last gray rectangle there are two smaller light blue colored rectangles that read 'push feedback files to GitHub' and 'create issues in students'repos on GitHub'" style="width:100%"&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+
+---
+
+## GitHub for a course?
+
+.pull-left-small[
+
+Our favorite way:
+
+- One **GitHub organization** per course
+
+
+]
+
+.pull-right-large[
+
+&lt;img src="figures/github-org.png" alt="Screenshot of GitHub webpage showing an organization with 'stats295r-fa20'. There are 14 repositories and 34 people in the organization." width="100%" style="display: block; margin: auto;" /&gt;
+
+]
+
+
+---
+
+## GitHub for a course?
+
+.pull-left-small[
+
+Our favorite way:
+
+- One repo per student, per week or assignment
+
+]
+
+.pull-right-large[
+
+&lt;img src="figures/github-org-repos.png" alt="Screenshot of repos in the organization 'stats295r-fa20' named 'week1-federicazoe', 'week2-federicazoe', 'week3-fedeericazoe' and so on." width="100%" style="display: block; margin: auto;" /&gt;
+
+]
+
+---
+
+## GitHub for a course?
+
+.pull-left-small[
+
+Our favorite way:
+
+- Quizzes and homework distributed and submitted in the repo
+
+]
+
+.pull-right-large[
+
+&lt;img src="figures/github-org-repo-inside.png" alt="screenshot of files included in the repo 'week1-federicazoe'. The list includes a mix of .R, .Rmd and .md files and a filed named '01f-homework.Rmd'." width="100%" style="display: block; margin: auto;" /&gt;
+
+]
+
+---
+
+class: middle
+
+
+## Why use GitHub for a course?
+
+- reproducibility, version control, collaboration
+
+--
+
+- students can learn GitHub hands-on
+
+--
+
+- we can easily share individualized feedback with students
+
+--
+
+- package [ghclass](https://rundel.github.io/ghclass/) makes it easy to manage courses on GitHub using R
+
+
+---
+
+## How does gradetools interact with GitHub?
+
+.pull-left-small[
+
+- Take note of issues while grading
+
+]
+
+.pull-right-large[
+
+&lt;img src="figures/github-take-note-issue.png" alt="screenshot of RStudio console with a grading prompt with an highlighted portion that says the prompt code 'i' corresponds to 'Take note of a GitHub issue (not push)'." width="100%" style="display: block; margin: auto;" /&gt;
+
+]
+
+---
+
+## How does gradetools interact with GitHub?
+
+.pull-left-small[
+
+- Take note of issues while grading
+
+]
+
+.pull-right-large[
+
+&lt;img src="figures/github-issue-title.png" alt="Screenshot of a R prompt to provide title of issue. Title provided is 'answer question for partial credit'." width="100%" style="display: block; margin: auto;" /&gt;
+
+]
+
+---
+
+## How does gradetools interact with GitHub?
+
+.pull-left-small[
+
+- Take note of issues while grading
+
+- Create issues in students (or team) repos
+
+]
+
+.pull-right-large[
+
+
+```r
+push_to_github()
+```
+
+]
+---
+
+## How does gradetools interact with GitHub?
+
+.pull-left-small[
+
+- Take note of issues while grading
+
+- Create issues in students (or team) repos
+
+]
+
+.pull-right-large[
+
+&lt;img src="figures/github-issue-created.png" alt="screenshot of GitHub showing an issue titled 'Answer question for partial credit' and whose body says 'Push an updated submission by Monday June 5'." width="100%" style="display: block; margin: auto;" /&gt;
+
+]
+
+---
+
+## How does gradetools interact with GitHub?
+
+.pull-left-small[
+
+- Take note of issues while grading
+
+- Create issues in students (or team) repos
+
+- Push feedback files
+
+]
+
+.pull-right-large[
+
+&lt;img src="figures/github-pushed-feedback.png" alt="screenshot of RStudio console showing confirmation that three feedback files have been pushed to GitHub after running the function push_to_github()'." width="100%" style="display: block; margin: auto;" /&gt;
+
+]
+
+---
+
+background-image: url(figures/github-logo.png)
+background-position: top right
+
+## Hands-on!
+
+In GitHub:
+
+--
+
+- Create a new [GitHub organization](https://docs.github.com/en/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)
+
+  - name it `uscots-gradetools-your GitHub username`
+
+--
+
+- Fork the repository [final-project-team-gamma](https://github.com/gradetools-test-course/final-project-team-YOUR_GITHUB_USERNAME) from the [gradetools-test-course](https://github.com/gradetools-test-course) organization into your new organization
+
+--
+
+- Change the name of the repo by filling-in your GitHub username
+
+
+---
+
+background-image: url(https://d33wubrfki0l68.cloudfront.net/7e89f71ee68cff45427e783fdc58510a9e32dfc9/0da76/wp-content/uploads/2018/10/rstudio-logo-white.png)
+background-position: top right
+
+## Hands-on!
+
+In RStudio:
+
+--
+
+- Fork our `gradetools-USCOTS2023` repo if you haven't done yet
+
+--
+
+- Install and load [ghclass](https://rundel.github.io/ghclass/index.html)
+
+
+```r
+install.packages("ghclass")
+library(ghclass)
+```
+
+---
+
+background-image: url(https://d33wubrfki0l68.cloudfront.net/7e89f71ee68cff45427e783fdc58510a9e32dfc9/0da76/wp-content/uploads/2018/10/rstudio-logo-white.png)
+background-position: top right
+
+## Hands-on!
+
+In RStudio&lt;sup&gt;1&lt;/sup&gt;:
+
+- Pull the repo `final-project-team-gamma` from your organization locally
+
+
+```r
+local_repo_clone(
+  repo = org_repos(org = "YOUR ORGANIZATION", 
+                            filter = "final-project-team"),
+  local_path = "final-project-team-repos"
+)
+```
+
+
+```r
+&gt; ✔ Cloned "YOUR ORGANIZATION/final-project-team-gamma".
+```
+
+.footnote[[1] Prerequisites: GitHub token setup]
+
+
+---
+
+class: middle
+
+## Hands-on: preparing roster
+
+.pull-left[
+
+- Make minimal roster
+
+- A column named `student_identifier` 
+
+  - must be your GitHub username
+
+]
+
+.pull-right[
+  
+|  student_identifier  | 
+|----------------------|
+| YOUR GITHUB USERNAME | 
+  
+]
+
+---
+
+class: middle
+
+## Hands-on: prepare roster
+
+Example roster
+
+
+```r
+roster &lt;- data.frame(
+  student_identifier = c("YOUR GITHUB USERNAME")
+)
+write_csv(roster, "roster.csv")
+```
+
+
+---
+
+class: middle
+
+## Hands-on: rubric
+
+- The repo has a single file named `presentation.Rmd`
+
+--
+
+- We included the rubric in the folder `demonstration-materials/github-demo`
+
+---
+
+class: middle
+
+## Hands-on: grading
+
+- We are going to use `assist_advanced_grading(..., github_issues = TRUE)` to grade
+
+---
+
+## Hands-on: grading
+
+
+```r
+assist_advanced_grading(
+  rubric_path,
+  roster_path,
+  grading_progress_log_path,
+  final_grade_sheet_path,
+  example_assignment_path,
+  example_feedback_path,
+  example_student_identifier,
+  github_issues = TRUE
+)
+```
+
+---
+
+## Hands-on: grading
+
+
+```r
+assist_advanced_grading(
+*  rubric_path,
+*  roster_path,
+  grading_progress_log_path,
+  final_grade_sheet_path,
+  example_assignment_path,
+  example_feedback_path,
+  example_student_identifier,
+  github_issues = TRUE
+)
+```
+
+_Reminder:_ These are the paths where rubric and roster are stored.
+
+
+---
+
+## Hands-on: grading
+
+
+```r
+assist_advanced_grading(
+  rubric_path,
+  roster_path,
+*  grading_progress_log_path,
+*  final_grade_sheet_path,
+  example_assignment_path,
+  example_feedback_path,
+  example_student_identifier,
+  github_issues = TRUE
+)
+```
+
+_Reminder:_  These are the paths where we want to store grading-progress files.
+
+---
+
+## Hands-on: grading
+
+
+```r
+assist_advanced_grading(
+  rubric_path,
+  roster_path,
+  grading_progress_log_path,
+  final_grade_sheet_path,
+*  example_assignment_path,
+*  example_feedback_path,
+*  example_student_identifier,
+  github_issues = TRUE
+)
+```
+
+_Reminder:_  These are, respectively, the path to `presentation.Rmd`, the path where we want to store the feedback file and your GitHub username.
+
+---
+
+## Hands-on: grading
+
+
+```r
+assist_advanced_grading(
+  rubric_path,
+  roster_path,
+  grading_progress_log_path,
+  final_grade_sheet_path,
+  example_assignment_path,
+  example_feedback_path,
+  example_student_identifier,
+*  github_issues = TRUE
+)
+```
+
+**New:**  These must be set to `TRUE` to enable annotating GitHub issues while grading.
+
+---
+
+## Hands-on: grading
+
+- After the presentation has been open, we can _knit it_ and browse it in the _Viewer pane_
+
+--
+
+- First, take a note of an issue for improving the title
+
+  - Enter **prompt 'i'**
+
+--
+
+- Next, assign a rubric item
+
+--
+
+- Finally, give some encouraging general feedback
+
+---
+
+## Hands-on: creating issues and pushing feedback
+
+- Use function `push_to_github()`:
+
+
+
+```r
+push_to_github (
+  grading_progress_log_path,
+  class_github_name,
+  example_github_repo,
+  example_identifier,
+  push_feedback,
+  create_issues
+)
+```
+
+
+---
+
+## Hands-on: creating issues and pushing feedback
+
+
+```r
+push_to_github (
+*  grading_progress_log_path,
+  class_github_name,
+  example_github_repo,
+  example_identifier,
+  push_feedback,
+  create_issues
+)
+```
+
+This is the path provided when using `assist_advanced_grading()`, where the file `grading_progress_log.csv` was stored.
+
+---
+
+## Hands-on: creating issues and pushing feedback
+
+
+```r
+push_to_github (
+  grading_progress_log_path,
+*  class_github_name,
+  example_github_repo,
+  example_identifier,
+  push_feedback,
+  create_issues
+)
+```
+
+This is the name of your **GitHub organization**.
+
+---
+
+## Hands-on: creating issues and pushing feedback
+
+
+
+```r
+push_to_github (
+  grading_progress_log_path,
+  class_github_name,
+*  example_github_repo,
+  example_identifier,
+  push_feedback,
+  create_issues
+)
+```
+
+This is the name of the repo where the assignment is.
+
+---
+
+## Hands-on: creating issues and pushing feedback
+
+
+```r
+push_to_github (
+  grading_progress_log_path,
+  class_github_name,
+  example_github_repo,
+*  example_identifier,
+  push_feedback,
+  create_issues
+)
+```
+
+This is your GitHub username.
+
+---
+
+## Hands-on: creating issues and pushing feedback
+
+
+```r
+push_to_github (
+  grading_progress_log_path,
+  class_github_name,
+  example_github_repo,
+  example_identifier,
+*  push_feedback = TRUE,
+*  create_issues = TRUE
+)
+```
+
+These must be set to TRUE if we want to both push feedback and create issues.
+
+---
+
+
+class: middle, center
+
+&lt;div class="row"&gt;
+  &lt;div class="column_left"&gt;
+    &lt;img src="figures/final-diagram-left.png" alt="Full preparation and inputs boxes in large diagram previously shown." style="width:100%"&gt;
+  &lt;/div&gt;
+  &lt;div class="column_center"&gt;
+    &lt;img src="figures/final-diagram-center.png" alt="Full grading with gradetools box in large diagram previously shown." style="width:100%"&gt;
+  &lt;/div&gt;
+  &lt;div class="column_right"&gt;
+    &lt;img src="figures/final-diagram-right.png" alt="Full outputs and finalization boxes in large diagram previously shown." style="width:100%"&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+---
+
+
+class: middle
+
+## Thank you for your time!
+
+- Please let us know any suggestions for gradetools: [feedback form](https://forms.gle/MwyxmT6zEf9tokCM9) 
+
+&lt;img src="figures/feedback-qr-code.png" alt="QR code linking to feedback form above" width="10%" style="display: block; margin: auto;" /&gt;
+
+- Keep an eye out for the gradetools manuscript (in progress), which describes our package from a development viewpoint
+- For more information and practice visit the gradetools website (https://federicazoe.github.io/gradetools/)
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script src="utils/cols_macro.js"></script>
+<script>var slideshow = remark.create({
+"ratio": "16:9",
+"highlightStyle": "solarized-light",
+"highlightLines": true,
+"countIncrementalSlides": true
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
