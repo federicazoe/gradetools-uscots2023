@@ -1,0 +1,244 @@
+---
+output:
+  xaringan::moon_reader:
+    css: ["utils/style.css","https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css", "xaringan-themer.css"]
+    lib_dir: libs
+    nature:
+      ratio: 16:9
+      highlightStyle: solarized-light
+      highlightLines: true
+      countIncrementalSlides: true
+      beforeInit: "utils/cols_macro.js"
+---
+
+class: middle, center
+
+# Additional functionalities
+
+---
+
+class: middle, center
+
+<div class="row">
+  <div class="column_left">
+    <img src="figures/final-diagram-left-4.png" alt="" style="width:100%">
+  </div>
+  <div class="column_center">
+    <img src="figures/final-diagram-center-blue-2.png" alt="Below, a rounded rectangle of light blue color saying 'add new rubric items while grading'. Below, another rounded rectangle of light blue color saying 'give personalized feedback'. Below this last rounded rectangle, some blank space as if more rectangles are still not shown. At the bottom, a legend that says 'gradetools' and 'yellow' for core, 'additional' for light blue." style="width:100%">
+  </div>
+  <div class="column_right">
+    <img src="figures/final-diagram-right-3.png" alt="" style="width:100%">
+  </div>
+</div>
+
+---
+
+class: middle
+
+## Adding a rubric item 
+
+.pull-left[
+
+- A rubric item can be added while grading
+- The user would be prompted to supply all relevant rubric components
+
+]
+
+.pull-right[
+
+<img src="figures/adding-rubric-item.png" alt="A picture of gradetool's prompting user to grade first question from the main demo. A blue box surrounds the additional grading options." style="width:100%;">
+
+]
+
+
+---
+
+class: middle
+
+## Editing the rubric 
+
+- Prompt messages, feedback messages, and points to remove/add call all be edited directly in the rubric
+- Changes would be reflected once the grading function is rerun
+
+--
+
+<span style="color: orange;">
+  Prompt codes cannot ever be changed because they are used to store grading progress
+</span>
+
+---
+
+class: middle
+
+## Providing personalized feedback
+
+A grader can write a message to a student's feedback file without having points associated
+
+.pull-left[
+It can pertain to a certain question
+
+<img src="figures/adding-personalized-feedback.png" alt="A picture of gradetool's prompting user to grade question 1, from the main demo. A blue box surrounds the additional grading option 'Provide a personalized feedback message." style="width:100%;">
+
+]
+
+.pull-right[
+Or to the assignment overall
+
+<img src="figures/adding-personalized-general-feedback.png" alt="A picture of gradetool's prompting user to grade provide general feedback, from the main demo. A blue box surrounds the additional grading option 'Provide a personalized feedback message." style="width:100%;">
+
+]
+
+---
+
+class: middle
+
+## Hands-on session: using extra prompt options
+
+- Grade another submission to practice adding rubric items and writing personalized feedback where appropriate
+- Note: Running the same `assist_grading()` call will resume grading progress
+
+---
+
+## Selective grading 
+
+- `assist_advanced_grading()` operates identically to `assist_grading()`, with a few extra options
+
+--
+
+- One extra is the ability to specify which students and which questions to grade
+  - E.g. grade question 1 for all students
+  
+--
+
+- These arguments are specified as character vectors
+  - `questions_to_grade` must be question names present in rubric
+  - `students_to_grade` must be student identifiers present in roster
+
+---
+
+class: middle
+
+## Selective grading example
+
+```{r, eval = FALSE}
+assist_advanced_grading(
+  rubric_path = "rubric-full.csv", 
+  roster_path = "roster-minimal.csv", 
+  grading_progress_log_path = "quiz01-grading-progress-log.csv", 
+  final_grade_sheet_path = "quiz01-final-grade-sheet.csv", 
+  example_student_identifier = "BaronPoisson",
+  example_assignment_path = "quiz01/quiz01-BaronPoisson.Rmd", 
+  example_feedback_path = "quiz01/quiz01-BaronPoisson-feedback.Rmd",
+  {{questions_to_grade = "Question 1", }}
+  {{students_to_grade = c("BaronPoisson", "sergent-gamma")}}
+)
+```
+
+---
+
+## Regrading
+
+- `assist_regrading()` allows graders to specify which students and questions to regrade
+
+--
+
+- Grading process is identical to an `assist_advanced_grading()` call
+
+--
+
+- If this process is interrupted, only the questions for the students the grader did regrade will have changed
+
+---
+
+class: middle
+
+## Hands-on session: using regrading function
+
+Regrading example
+
+```{r, eval = FALSE}
+assist_regrading(
+  rubric_path = "rubric-full.csv", 
+  grading_progress_log_path = "quiz01-grading-progress-log.csv", 
+  final_grade_sheet_path = "quiz01-final-grade-sheet.csv",
+  {{questions_to_regrade = c("Question 1", "Question 2"), }}
+  {{students_to_regrade = "BaronPoisson"}}
+)
+```
+
+Regrade either 2 questions for one student or 1 question for two students.
+
+---
+
+## Multiple submissions per student
+
+The grading functions allow the provided assignment path to be a vector
+
+--
+
+.pull-left-small[
+<img src="figures/filepath-multiple-submissions.jpg" alt="A picture of a directory containing two sub directories names final-AlexYu and final-Ann-Lee. Each sub directory contains the files README.md and proposal.Rmd, which are highlighted. The AlexYu subfolder has an additional sub directory names draft, while the Ann-Lee subfolder has a file names figure.png." align = "right" style="width:75%;">
+]
+--
+.pull-right-large[
+```{r, eval = FALSE}
+example_student_identifier = "AlexYu"
+example_assignment_path = c(
+  "final/final-AlexYu/README.md",
+  "final/final-AlexYu/proposal.Rmd"
+)
+```
+]
+
+---
+
+## Team grading with `assist_team_grading()`
+
+.pull-left[
+- For the case of multiple students per submission (e.g. group project)
+- Students on a team share a feedback file and score
+
+]
+
+.pull-right[
+
+]
+
+
+---
+
+## Team grading with `assist_team_grading()`
+
+.pull-left[
+- For the case of multiple students per submission (e.g. group project)
+- Students on a team share a feedback file and score
+
+]
+
+.pull-right[
+- Roster must have both student and team identifiers  
+
+]
+
+<img src="figures/team-roster.png" alt="A picture of a csv with a column of student identifiers and a column of team identifiers. federicazoe and Catalina Medina is on team gamma while mdogucu is on team poisson." style="width:40%;">
+
+---
+
+## Team grading with `assist_team_grading()`
+
+.pull-left[
+- For the case of multiple students per submission (e.g. group project)
+- Students on a team share a feedback file and score
+
+]
+
+.pull-right[
+- Roster must have both student and team identifiers
+- Team identifier must be present and only unique part of assignment and feedback paths
+]
+
+```{r, eval = FALSE}
+example_team_identifier = "gamma"
+example_assignment_path = "final-projects/team-gamma/presentation.Rmd"
+example_feedback_path = "final-projects/team-gamma/feedback.Rmd"
+```
