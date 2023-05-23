@@ -38,3 +38,7 @@
 
 # Folders with material used for preparation
 slides/fede_ignore/*
+
+# Text file with line to run to update GitHub pages
+build_new_pages
+
