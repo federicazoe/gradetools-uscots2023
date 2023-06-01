@@ -1071,7 +1071,7 @@ knitr::include_graphics("figures/RStudio-naming-new-project.png")
 ]
 
 .pull-right[
-```{r echo=FALSE, out.width="100%", fig.align='center', fig.alt="Screenshot of files panel of RStudio. Shows in 'USCOTS2023-gradetools-practice' folder there is a R project file, 'gradeing-script.R', and a folder called 'quiz01'."}
+```{r echo=FALSE, out.width="100%", fig.align='center', fig.alt="Screenshot of files panel of RStudio. Shows in 'USCOTS2023-gradetools-practice' folder there is a R project file, 'grading-script.R', and a folder called 'quiz01'."}
 knitr::include_graphics("figures/demo-new-project-folder.png")
 ```
 ]
