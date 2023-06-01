@@ -676,6 +676,25 @@ class: middle, center
 </div>
 
 ---
+class: middle center
+
+## Acknowledgements
+
+
+```{r echo=FALSE, fig.alt="NSF logo", out.width = "10%", fig.align="center"}
+knitr::include_graphics("figures/nsf-logo.png")
+```
+
+NSF HDR DSC award \#2123366 
+
+```{r echo=FALSE, fig.alt="Hasso Plattner Institute in Machine Learning and Data Science logo", out.width = "20%", fig.align="center"}
+knitr::include_graphics("figures/hpi-logo.jpeg")
+```
+
+HPI
+
+
+---
 
 class: middle
 

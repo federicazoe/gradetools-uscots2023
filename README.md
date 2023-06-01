@@ -18,3 +18,17 @@ After the workshop, you can submit feedback on gradetools [here](https://docs.go
 ### Prerequisites
 
 This is a hands-on workshop, and we want to make sure everyone comes prepared to get the most out of it. There are some [requirements and recommendations](https://docs.google.com/document/d/1Bh17nAwhkXhkyOfdiDouxyFaAxeeR7QzM1kbuiraSMM/edit#heading=h.z8r4uf686pdz) that we ask you to complete before attending the workshop.
+
+## Support
+
+<table>
+  <tr style="text-align: left"> 
+    <td> <img src="slides/figures/nsf-logo.png" align="center" alt="NSF logo" width="80" /> </td>
+    <td style="text-align: left"> <br> <br> This work is supported by NSF HDR DSC award #2123366. </td>
+  </tr> 
+  <tr></tr>
+  <tr style="text-align: left"> 
+    <td> <img src="slides/figures/hpi-logo.jpeg" align="center" alt="NSF logo" width="80" /> </td>
+    <td style="text-align: left"> This work is also supported by the HPI Research Center in Machine Learning and Data Science at UC Irvine. </td>
+  </tr>   
+</table>
