@@ -7,7 +7,7 @@ This repo hosts material for the workshop [_Automate your grading workflow with 
 | [Introduction](https://federicazoe.github.io/gradetools-uscots2023/slides/01-introduction.html)                           | 1 - 1:30 pm    |
 | [Grading inputs and outputs](https://federicazoe.github.io/gradetools-uscots2023/slides/02-grading-inputs-outputs.html)   | 1:30 - 2:15 pm |
 | [Core grading functionalities](https://federicazoe.github.io/gradetools-uscots2023/slides/03-core-grading.html)           | 2:15 - 2:30 pm |
-| Break                                                                                                                     | 2:30 - 3 pm    |
+| Break                                                                                                                     | 2:30 - 2:45 pm    |
 | [Additional grading functionalities](https://federicazoe.github.io/gradetools-uscots2023/slides/04-extended-grading.html) | 3 - 3:30 pm    |
 | [gradetools + GitHub](https://federicazoe.github.io/gradetools-uscots2023/slides/05-github.html)                          | 3:30 - 4:15 pm |
 
