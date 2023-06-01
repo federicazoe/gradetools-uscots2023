@@ -2,7 +2,7 @@
 title: "<img src='figures/gradetools-logo.png' align='center' width='450px' alt='a hex shaped logo with a cat in front of a laptop sending out paper planes and a notepad with A+ on it. The logo reads gradetools'/> <br>
 gradetools: a grading assistant in RStudio"
 author: "Federica Zoe Ricci, Catalina Medina, and Mine Dogucu"
-subtitle: "[https://federicazoe.github.io/gradetools-uscots2023](https://federicazoe.github.io/gradetools-uscots2023/)"
+subtitle: "[https://github.com/federicazoe/gradetools-uscots2023/](https://github.com/federicazoe/gradetools-uscots2023/)"
 date: "USCOTS - June 1, 2023"
 output:
   xaringan::moon_reader:
