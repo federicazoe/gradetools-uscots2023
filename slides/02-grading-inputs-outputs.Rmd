@@ -1190,7 +1190,7 @@ rubric_ex <- data.frame(
   name = c(
     "Question 1", "Question 1", "Question 2", "Question 3","Question 3"
   ),
-  total_points = paste0(c(2, NA, 2, 3, NA)),
+  total_points = paste0(c(2, " ", 2, 3, " ")), # Note this was a hack for the sake of presentation only!
   prompt_code = NA,
   prompt_message = NA,
   feedback = c(
