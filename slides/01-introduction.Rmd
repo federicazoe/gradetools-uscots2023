@@ -1,4 +1,9 @@
 ---
+title: "<img src='figures/gradetools-logo.png' align='center' width='450px' alt='a hex shaped logo with a cat in front of a laptop sending out paper planes and a notepad with A+ on it. The logo reads gradetools'/> <br>
+gradetools: a grading assistant in RStudio"
+author: "Federica Zoe Ricci, Catalina Medina, and Mine Dogucu"
+subtitle: "[https://federicazoe.github.io/gradetools-uscots2023](https://federicazoe.github.io/gradetools-uscots2023/)"
+date: "USCOTS - June 1, 2023"
 output:
   xaringan::moon_reader:
     css: ["utils/style.css","https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css", "xaringan-themer.css"]
@@ -10,7 +15,6 @@ output:
       countIncrementalSlides: true
       beforeInit: "utils/cols_macro.js"
 ---
-
 
 class: hide-count, middle, center
 
@@ -26,9 +30,13 @@ xaringanExtra::use_panelset()
 knitr::include_graphics("figures/federica-ricci.jpeg")
 ```
 
-University of California, Irvine
-`r fontawesome::fa(name = "link")` <a href = "https://federicazoe.github.io/">federicazoe.github.io</a>
-`r fontawesome::fa(name = "envelope")` <a href = "fzricci@uci.edu">fzricci@uci.edu</a>
+PhD Student @ University of California, Irvine
+
+**Stats interests:** Bayesian statistics + Statistics Education
+
+**Other interests:** Hiking, traveling and cooking
+
+**Website:** `r fontawesome::fa(name = "link")` <a href = "https://federicazoe.github.io" style="color:whitesmoke;"> federicazoe.github.io</a>
 
 ]
 
@@ -38,9 +46,13 @@ University of California, Irvine
 knitr::include_graphics("figures/catalina-medina.jpg")
 ```
 
-University of California, Irvine
-`r fontawesome::fa(name = "link")` <a href = "https://catalinamedina.github.io/">catalinamedina.github.io</a>
-`r fontawesome::fa(name = "envelope")` <a href = "catalmm1@uci.edu">catalmm1@uci.edu</a> 
+PhD Student @ University of California, Irvine
+
+**Stats interests:** Statistics for Public Health + Statistics Education
+
+**Other interests:** Reading, cooking and binging TV
+
+**Website:**  `r fontawesome::fa(name = "link")` <a href = "https://catalinamedina.github.io/" style="color:whitesmoke;">catalinamedina.github.io</a>
 
 ]
 
@@ -50,8 +62,11 @@ University of California, Irvine
 knitr::include_graphics("figures/mine-dogucu.jpeg")
 ```
 
-University College London and University of California, Irvine
-`r fontawesome::fa(name = "link")` <a href = "http://minedogucu.com">minedogucu.com</a>
+Lecturer @ University College London 
+
+Assistant professor @ University of California, Irvine
+
+**Website:**  `r fontawesome::fa(name = "link")` <a href = "http://minedogucu.com" style="color:whitesmoke;"> minedogucu.com</a>
 
 
 ]
@@ -59,6 +74,59 @@ University College London and University of California, Irvine
 
 ---
 
+## Take a moment to
+
+- download latest version of this workshop material from
+  [https://github.com/federicazoe/gradetools-uscots2023](https://github.com/federicazoe/gradetools-uscots2023)
+  
+```{r echo=FALSE, out.width="80%", fig.align='center', fig.alt="Person with long hair sitting with their laptop"}
+knitr::include_graphics("figures/take_a_moment.png")
+```
+
+- link to slides for each sections can be found there
+
+---
+
+## Survey
+
+.panelset[
+.panel[.panel-name[From what we've asked you]
+
+Today's participants:
+
+- represent a wide array of institutions
+- teach classes of varied sizes
+
+The **variety of your experiences** will be very helpful for us to learn improvements that can make gradetools even more helpful!
+
+]
+]
+
+---
+
+## Survey
+
+.panelset[
+.panel[.panel-name[From what we've asked you]
+
+At least half of you teach a course that involves some computing
+
+- This is great because gradetools was made to be compatible with **computing assignments**
+
+- We are working on a new and improved version of gradetools, which **will include** compatibility with **pdfs**!
+
+]
+.panel[.panel-name[What we should've asked you]
+
+- Do you feel at least moderately comfortable with RStudio?
+- Have you brought your own student submissions to grade?
+- Have you ever used GitHub?
+- Have you ever used GitHub for your class?
+
+]
+]
+
+---
 
 ## Workshop outline
 
@@ -66,7 +134,7 @@ University College London and University of California, Irvine
 
 --
 
-- Grading preparation
+- Grading inputs & outputs
 
 --
 
@@ -86,29 +154,7 @@ University College London and University of California, Irvine
 
 --
 
-- Recap, questions and your feedback
-
----
-
-## Workshop outcomes
-
-Participants will be able to:
-
---
-
-- describe scope of gradetools
-
---
-
-- identify grading situations where gradetools would be advantageous
-
---
-
-- employ gradetools to grade assignments using core and extended functionalities
-
---
-
-We will also provide an introduction to class management on Github!
+Note: workshop ends at 4:15 pm
 
 ---
 
@@ -117,12 +163,59 @@ class: middle, center
 # Introduction
 
 ---
+class:  middle
+
+## Terminology
+
+--
+
+**Grade** - numeric score (e.g. 3.5)
+
+--
+
+**Feedback** - qualitative comment (e.g. "The response variable should be on the y axis")
+
+---
+
+class: middle
+
+## Let's think about grading
+
+![:col_header 
+<span style="font-size:23px; color:whitesmoke;">1. Preparation <br> <br> </span>
+  <i class="fa-solid fa-file-arrow-down" aria-hidden="true" style="font-size:90px; color:whitesmoke;"></i>,
+  <span style="font-size:23px;; color:whitesmoke;">2. Grading and Feedback <br> <br> </span>
+  <i class="fa-solid fa-pen-to-square" aria-hidden="true" style="font-size:90px; color:whitesmoke;"></i>,
+  <span style="font-size:23px; color:whitesmoke;">3. Returning grades & feedback <br> <br> </span>
+  <i class="fa-solid fa-file-arrow-up" aria-hidden="true" style="font-size:90px; color:whitesmoke;"></i>
+              ]
+
+---
+
+class: middle
+
+## gradetools focus
+
+![:col_header 
+<span style="font-size:23px; color:whitesmoke;">1. Preparation <br> <br> </span>
+  <i class="fa-solid fa-file-arrow-down" aria-hidden="true" style="font-size:90px; color:whitesmoke;"></i>,
+  <span style="font-size:23px; color:#ffcc66;">2. Grading and Feedback <br> <br> </span>
+  <i class="fa-solid fa-pen-to-square" aria-hidden="true" style="font-size:90px; color:#ffcc66;"></i>,
+  <span style="font-size:23px; color:whitesmoke;">3. Returning grades & feedback <br> <br> </span>
+  <i class="fa-solid fa-file-arrow-up" aria-hidden="true" style="font-size:90px; color:whitesmoke;"></i>
+              ]
+
+
+---
+
+class: middle
 
 ## How did gradetools come about?
 
 .pull-left2[
 
 Once upon a time, Federica was a TA for Mine...
+
 
 ]
 
@@ -136,7 +229,31 @@ knitr::include_graphics("figures/girl-grading.webp")
 
 ---
 
+class: middle
+
 ## How did gradetools come about?
+
+.pull-left2[
+
+Once upon a time, Federica was a TA for Mine...
+
+... and she needed to grade many .R and .Rmd files for every homework
+
+]
+
+.pull-right2[
+<br>
+<br>
+```{r echo=FALSE, out.width="70%", fig.align='right', fig.alt="Person with long hair sitting with their laptop"}
+knitr::include_graphics("figures/girl-grading.webp")
+```
+]
+
+
+---
+
+
+## Grading tasks
 
 .pull-left2[
 
@@ -156,7 +273,7 @@ knitr::include_graphics("figures/github-logo.png")
 
 
 .pull-left2[
-## How did gradetools come about?
+## Grading tasks
 
 - Downloading student files
 
@@ -173,14 +290,14 @@ knitr::include_graphics("figures/screenshot-assignment-folders.png")
 
 ---
 
-## How did gradetools come about?
+## Grading tasks
 
 .pull-left2[
 - Downloading student files
 
 - Open each student's file(s), one by one
 
-- Finding the corresponding student on the grade sheet
+- Referencing the rubric
 
 
 ]
@@ -197,14 +314,14 @@ knitr::include_graphics("figures/excel.png")
 
 ---
 
-## How did gradetools come about?
+## Grading tasks
 
 .pull-left2[
 - Downloading student files
 
 - Open each student's file(s), one by one
 
-- Finding the corresponding student on the grade sheet
+- Referencing the rubric
 
 - Evaluating student's work
 
@@ -226,7 +343,7 @@ knitr::include_graphics("figures/rstudio-logo.png")
 
 ---
 
-## How did gradetools come about?
+## Grading tasks
 
 .pull-left2[
 
@@ -234,7 +351,7 @@ knitr::include_graphics("figures/rstudio-logo.png")
 
 - Open each student's file(s), one by one
 
-- Finding the corresponding student on the grade sheet
+- Referencing the rubric
 
 - Evaluating student's work
 
@@ -255,7 +372,7 @@ knitr::include_graphics("figures/excel.png")
 
 ---
 
-## How did gradetools come about?
+## Grading tasks
 
 .pull-left2[
 
@@ -263,7 +380,7 @@ knitr::include_graphics("figures/excel.png")
 
 - Open each student's file(s), one by one
 
-- Finding the corresponding student on the grade sheet
+- Referencing the rubric
 
 - Evaluating student's work
 
@@ -286,7 +403,7 @@ knitr::include_graphics("figures/rstudio-logo.png")
 
 ---
 
-## How did gradetools come about?
+## Grading tasks
 
 .pull-left2[
 
@@ -294,7 +411,7 @@ knitr::include_graphics("figures/rstudio-logo.png")
 
 - Open each student's file(s), one by one
 
-- Finding the corresponding student on the grade sheet
+- Referencing the rubric
 
 - Evaluating student's work
 
@@ -322,14 +439,14 @@ knitr::include_graphics("figures/canvas-logo.jpeg")
 
 ---
 
-## How did gradetools come about?
+## Grading tasks
 
 .pull-left2[
 - Downloading student files
 
 - **Open each student's file(s), one by one**
 
-- **Finding the corresponding student on the grade sheet**
+- **Referencing the rubric**
 
 - **Evaluating student's work**
 
@@ -352,43 +469,198 @@ knitr::include_graphics("figures/rstudio-logo.png")
 
 ]
 
----
-
-class: middle
-
-## grading stages
-
-![:col_header 
-<span style="font-size:23px; color:whitesmoke;">1. Preparation <br> <br> </span>
-  <i class="fa-solid fa-file-arrow-down" aria-hidden="true" style="font-size:90px; color:whitesmoke;"></i>,
-  <span style="font-size:23px;; color:whitesmoke;">2. Grading and Feedback <br> <br> </span>
-  <i class="fa-solid fa-pen-to-square" aria-hidden="true" style="font-size:90px; color:whitesmoke;"></i>,
-  <span style="font-size:23px; color:whitesmoke;">3. Returning grades & feedback <br> <br> </span>
-  <i class="fa-solid fa-file-arrow-up" aria-hidden="true" style="font-size:90px; color:whitesmoke;"></i>
-              ]
 
 ---
 
 class: middle
 
-## gradetools main role
+.pull-left[
 
-![:col_header 
-<span style="font-size:23px; color:whitesmoke;">1. Preparation <br> <br> </span>
-  <i class="fa-solid fa-file-arrow-down" aria-hidden="true" style="font-size:90px; color:whitesmoke;"></i>,
-  <span style="font-size:23px; color:#ffcc66;">2. Grading and Feedback <br> <br> </span>
-  <i class="fa-solid fa-pen-to-square" aria-hidden="true" style="font-size:90px; color:#ffcc66;"></i>,
-  <span style="font-size:23px; color:whitesmoke;">3. Returning grades & feedback <br> <br> </span>
-  <i class="fa-solid fa-file-arrow-up" aria-hidden="true" style="font-size:90px; color:whitesmoke;"></i>
-              ]
+## Administrative Tasks
+
+- Opening and closing files
+
+
+]
 
 
 ---
 
-class: middle, center
+class: middle
+
+.pull-left[
+
+## Administrative Tasks
+
+- Opening and closing files
+
+- Referencing the rubric
+
+
+]
+
+---
+
+class: middle
+
+.pull-left[
+
+## Administrative Tasks
+
+- Opening and closing files
+
+- Referencing the rubric
+
+- Entering and storing grades to the gradesheet
+
+]
+
+---
+
+class: middle
+
+.pull-left[
+
+## Administrative Tasks
+
+- Opening and closing files
+
+- Referencing the rubric
+
+- Entering and storing grades to the gradesheet
+
+]
+
+.pull-right[
+
+## Pedagogical Decisions
+
+- Evaluating students' work
+
+
+]
+
+---
+
+class: middle
+
+.pull-left[
+
+## Administrative Tasks
+
+- Opening and closing files
+
+- Referencing the rubric
+
+- Entering and storing grades to the gradesheet
+
+]
+
+.pull-right[
+
+## Pedagogical Decisions
+
+- Evaluating students' work
+
+- Assigning a score
+
+]
+
+---
+
+class: middle
+
+.pull-left[
+
+## Administrative Tasks
+
+- Opening and closing files
+
+- Referencing the rubric
+
+- Entering and storing grades to the gradesheet
+
+]
+
+.pull-right[
+
+## Pedagogical Decisions
+
+- Evaluating students' work
+
+- Assigning a score
+
+- Providing feedback
+
+]
+
+---
+
+class: middle 
+
+The gradetools package 
+
+- .emph[automates] the repetitive .emph[administrative tasks] in the grading workflow 
+
+--
+
+- minimizes switching between different interfaces
+
+--
+
+- .emph[saves time for] more meaningful tasks that require .emph[pedagogical decisions].
+
+---
+
+## Example: a homework
+
+--
+
+_Many of the following questions will be based on the **bike rental data** in Los Angeles. The data represents all bike rides from Metro Bike Share company in April-June of 2019._
+
+_The data and a description of each variable can be found at (https://bikeshare.metro.net/about/data/)._
+
+_Throughout the homework, make sure you use a reasonable font size and **label axes**. You are welcome to use colors and themes whenever you would like. Adhere to tidyverse style guide._
+
+---
+
+## Example: a homework
+
+_**Question 1**_
+
+_How many observations and variables are there? What does each observation represent? Answer with inline code when appropriate._
+
+--
+
+_**Question 2**_
+
+_Make a plot that shows the number of rentals by each pass type._
+
+--
+
+_**Question 3**_
+
+_Does bike type preference seem to vary by passholder type? Make a plot and refer to it in your answer to this question._
+
+
+---
+
+class: middle
 
 
 ### Demo of gradetools in action!
+
+```{r, eval=FALSE}
+assist_grading(
+  rubric_path = "rubric.csv", 
+  roster_path = "roster.csv", 
+  grading_progress_log_path = "grading-progress-log.csv", 
+  final_grade_sheet_path = "quiz01-final-grade-sheet.csv", 
+  example_assignment_path = "quiz01/quiz01-BaronPoisson.Rmd",
+  example_feedback_path = "quiz01/quiz01-BaronPoisson-feedback.html",
+  example_student_identifier = "BaronPoisson"
+)
+```
 
 
 

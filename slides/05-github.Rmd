@@ -17,51 +17,106 @@ class: middle, center
 
 ---
 
-class: middle, center
+## Outline for this part
 
-<div class="row">
-  <div class="column_left">
-    <img src="figures/final-diagram-left-4.png" alt="" style="width:100%">
-  </div>
-  <div class="column_center">
-    <img src="figures/final-diagram-center-blue-3.png" alt="Below, a rounded rectangle of light blue color saying 'add new rubric items while grading'. Below, another rounded rectangle of light blue color saying 'give personalized feedback'. Below, another rounded rectangle of light blue color saying 'regrade specified questions and specified students'. Below this last rounded rectangle, some blank space as if more rectangles are still not shown. At the bottom, a legend that says 'gradetools' and 'yellow' for core, 'additional' for light blue." style="width:100%">
-  </div>
-  <div class="column_right">
-    <img src="figures/final-diagram-right-3.png" alt="'" style="width:100%">
-  </div>
-</div>
+- Why use GitHub for a course
 
----
+--
 
-class: middle, center
+- End-to-end GitHub course + gradetools:
 
-<div class="row">
-  <div class="column_left">
-    <img src="figures/final-diagram-left-4.png" alt="" style="width:100%">
-  </div>
-  <div class="column_center">
-    <img src="figures/final-diagram-center.png" alt="Below, a rounded rectangle of light blue color saying 'add new rubric items while grading'. Below, another rounded rectangle of light blue color saying 'give personalized feedback'. Below, another rounded rectangle of light blue color saying 'regrade specified questions and specified students'. Below, another rounded rectangle of light blue color saying 'take note of GitHub issues to be created in students' repos. At the bottom, a legend that says 'gradetools' and 'yellow' for core, 'additional' for light blue." style="width:100%">
-  </div>
-  <div class="column_right">
-    <img src="figures/final-diagram-right-3-github.png" alt="" style="width:100%">
-  </div>
-</div>
+--
+
+  - Setting up a class on GitHub
+
+--
+
+  - Distributing work to students
+
+--
+  
+  - Collecting students' work
+  
+--
+
+  - Grading
+  
+--
+
+  - Distributing feedback to students
 
 ---
 
-class: middle, center
+## Outline for this part
 
-<div class="row">
-  <div class="column_left">
-    <img src="figures/final-diagram-left.png" alt="Snow" style="width:100%">
-  </div>
-  <div class="column_center">
-    <img src="figures/final-diagram-center.png" alt="Below, a rounded rectangle of light blue color saying 'add new rubric items while grading'. Below, another rounded rectangle of light blue color saying 'give personalized feedback'. Below, another rounded rectangle of light blue color saying 'regrade specified questions and specified students'. Below, another rounded rectangle of light blue color saying 'take note of GitHub issues to be created in students' repos. At the bottom, a legend that says 'gradetools' and 'yellow' for core, 'additional' for light blue." style="width:100%">
-  </div>
-  <div class="column_right">
-    <img src="figures/final-diagram-right.png" alt="The square where the outputs are listed is linked to text box that reads '3. Finalization', which is the header of a rounded transparent rectangle around two gray-filled rounded rectangles that read 'upload the grade sheet' and 'distribute the feedback'. Nested within this last gray rectangle there are two smaller light blue colored rectangles that read 'push feedback files to GitHub' and 'create issues in students'repos on GitHub'" style="width:100%">
-  </div>
-</div>
+.pull-left2[
+
+- Why use GitHub for a course
+
+- End-to-end GitHub course + gradetools:
+
+  - Setting up a class on GitHub
+
+  - Distributing work to students
+
+  - Collecting students' work
+  
+  - **Grading**
+  
+  - **Distributing feedback to students**
+]
+
+.pull-right2[
+
+```{r echo=FALSE, fig.align='center', out.width = "100%", fig.alt = "Hex logo of gradetools: a cat typing on a laptop that a gradebook and differently colored paper planes"}
+knitr::include_graphics("figures/gradetools-logo.png")
+```
+
+]
+
+
+  
+---
+class:  middle
+
+## Terminology <sup>1</sup>
+.footnote[[1] based on GitHub Docs]
+
+**GitHub repository (repo)** - A folder/space on GitHub that contains all of a project's files and each file's revision history. 
+
+--
+
+**GitHub issue** - ways to plan work, track issues, and discuss projects goals.
+
+--
+
+**GitHub push** - action that results in changes made to repo on your laptop to be reflected online on GitHub (i.e. repo --> GitHub)
+
+--
+
+**GitHub pull** - action that results in changes made to repo online on GitHub to be reflected on your laptop (i.e. GitHub --> repo)
+
+---
+
+class: middle
+
+
+## Why use GitHub for a course?
+
+- reproducibility, version control, collaboration
+
+--
+
+- students can learn GitHub _by using it_
+
+--
+
+- we can easily share individualized feedback with students
+
+--
+
+- package [ghclass](https://rundel.github.io/ghclass/)<sup>1</sup> makes it easy to manage courses on GitHub using R
+.footnote[[1] by Colin Rundel and Mine Cetinkaya-Rundel]
 
 
 ---
@@ -72,7 +127,9 @@ class: middle, center
 
 Our favorite way:
 
-- One **GitHub organization** per course
+- One **GitHub _organization_** per course
+
+  (NOT GitHub _classroom_)
 
 
 ]
@@ -128,33 +185,286 @@ knitr::include_graphics("figures/github-org-repo-inside.png")
 
 ---
 
-class: middle
+## Github for class + gradetools for grades
+
+```{r xaringan-panelset, echo=FALSE}
+xaringanExtra::use_panelset()
+```
+
+.panelset[
+.panel[.panel-name[1 Class setup]
+On **GitHub**:
+
+- 1.1 Create a new GitHub organization
+- 1.2 Create one repo for your week 1 assignments
+
+With **ghclass**:
+
+- 1.3 Invite students to your organization
+
+]
+
+.panel[.panel-name[2 Assigning work]
+With **ghclass**:
+
+- 2.1 Add an assignment to the week 1 repo 
+- 2.2 Automatically create a week 1 repo for each student
+]
+
+.panel[.panel-name[3 Grading]
+With **ghclass**
+
+- 3.1 Collect students' work
+
+With **gradetools**:
+
+- 3.2 Take notes of issues while grading
+
+- 3.3 Create issues in students (or team) repos
+
+- 3.4 Push feedback files
+
+]
+]
+
+---
 
 
-## Why use GitHub for a course?
+## 1. Class setup: GitHub
 
-- reproducibility, version control, collaboration
+.pull-left2[
+1.1 Create a new [GitHub organization](https://docs.github.com/en/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch).
 
---
+]
 
-- students can learn GitHub hands-on
+.pull-right2[
 
---
+```{r echo=FALSE, fig.align='center', out.width = "80%", fig.alt = "screenshot of the portion of github website where it lists the options available for someone who has signed up, and the option 'Your organizations' is highlighted."}
+knitr::include_graphics("figures/github-org-your-org.png")
+```
 
-- we can easily share individualized feedback with students
-
---
-
-- package [ghclass](https://rundel.github.io/ghclass/) makes it easy to manage courses on GitHub using R
+]
 
 
 ---
 
-## How does gradetools interact with GitHub?
+## 1. Class setup: GitHub
+
+
+1.1 Create a new [GitHub organization](https://docs.github.com/en/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)
+
+```{r echo=FALSE, fig.align='center', out.width = "100%", fig.alt = "screenshot of a portion of github website where we see Organizations and a button to crate a new organization, which is highlighted."}
+knitr::include_graphics("figures/github-org-new.png")
+```
+
+---
+
+## 1. Class setup: GitHub
+
+1.1 Create a new [GitHub organization](https://docs.github.com/en/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)
+
+```{r echo=FALSE, fig.align='center', out.width = "40%", fig.alt = "screenshot of a portion of github website where we see the button to create a free organization."}
+knitr::include_graphics("figures/github-org-free-org.png")
+```
+
+---
+
+## 1. Class setup: GitHub
+
+1.1 Create a new [GitHub organization](https://docs.github.com/en/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)
+
+```{r echo=FALSE, fig.align='center', out.width = "50%", fig.alt = "screenshot of github website where we see how a organization is set up by specifying the organization account name, the contact email of the organization and whether the organization belongs to a personal account or to a business. These fields are filled-in for a organization named example-course-federicazoe, the email associated with it is fzricci@uci.edu and the option chosen is that the org belongs to a personal account."}
+knitr::include_graphics("figures/github-org-setup-org.png")
+```
+
+---
+
+## 1. Class setup: GitHub
+
+1.1 Create a new [GitHub organization](https://docs.github.com/en/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)
+
+```{r echo=FALSE, fig.align='center', out.width = "60%", fig.alt = "screenshot of github website where after the organization is created we could add members to it. The button Skip this step is highlighted."}
+knitr::include_graphics("figures/github-org-skip-step.png")
+```
+
+
+---
+
+## 1. Class setup: GitHub 
+
+1.1 Create a new [GitHub organization](https://docs.github.com/en/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)
+
+```{r echo=FALSE, fig.align='center', out.width = "70%", fig.alt = "screenshot of newly created github organization 'example-course-federicazoe'. There are no repositories and the count of the number of people is 1."}
+knitr::include_graphics("figures/github-org-created.png")
+```
+
+---
+
+## 1. Class setup: GitHub 
+
+1.2 Create a repo for week 1 assignments in your organization   
+(e.g. week01-data-viz)
+
+```{r echo=FALSE, fig.align='center', out.width = "100%", fig.alt = "Screenshot of GitHub webpage showing the option to create a new repository in our new organization example-course-federicazoe."}
+knitr::include_graphics("figures/github-org-create-repo.png")
+```
+
+---
+
+## 1. Class setup: ghclass <sup>1</sup>
+.footnote[[1] Much more info on [ghclass website](https://rundel.github.io/ghclass/articles/ghclass.html#structuring-your-class-on-github)]
+
+Install and load <a href="https://rundel.github.io/ghclass/">ghclass</a>.
+
+```{r, eval=FALSE}
+install.packages("ghclass")
+library(ghclass)
+```
+
+---
+
+## 1. Class setup: ghclass <sup>1</sup><sup>,2</sup>
+.footnote[[1] Much more info on [ghclass website](https://rundel.github.io/ghclass/articles/ghclass.html#structuring-your-class-on-github); [2] Prerequisites: GitHub token setup]
+
+1.3 Invite students to the organization
+
+```{r, eval=FALSE}
+# Invite students to the organization using ghclass
+org_invite(org = "example-course-federicazoe", 
+           user = c("CatalinaMedina", "felipe-jones"))
+```
+
+```{r, eval = FALSE}
+#> ✓ Invited user "CatalinaMedina" to org "example-course-federicazoe".
+#> ✓ Invited user "felipe-jones" to org "example-course-federicazoe".
+```
+
+---
+
+## 2. Assign work: ghclass 
+
+2.1 Prepare template repo for one assignment: 
+  - Add assignment to this repo
+
+```{r, eval=FALSE}
+repo_add_file(
+  org_repos("example-course-federicazoe","week01-data-viz"),
+  message = "Add quiz on data visualization",
+  file = here::here("demonstration-materials/github-demo/quiz01-data-viz.Rmd")
+)
+```
+```{r, eval = FALSE}
+#> ✓ Added file "quiz01-data-viz.Rmd" to repo "example-course-federicazoe/week01-data-viz".
+```
+---
+
+## 2. Assign work: ghclass 
+
+2.1 Prepare template repo for one assignment: 
+  - Set this repo as a template:
+  
+```{r, eval=FALSE}
+repo_set_template("example-course-federicazoe/week01-data-viz")
+```
+
+```{r, eval = FALSE}
+#> ✓ Changed the template status of repo "example-course-federicazoe/week01-data-viz" to TRUE.
+```
+
+---
+
+## 2. Assign work: ghclass 
+
+2.2 Distribute assignment to students:
+
+```{r, eval=FALSE}
+org_create_assignment(
+  org = "example-course-federicazoe",
+  user = c("CatalinaMedina", "felipe-jones"),
+  repo = paste0("week01-data-viz-", c("CatalinaMedina", "felipe-jones")),
+  source_repo = "example-course-federicazoe/week01-data-viz",
+  private = TRUE
+)
+```
+
+```{r, eval = FALSE}
+#> ✔ Mirrored repo "example-course-federicazoe/week01-data-viz" to repo "example-course-federicazoe/week01-data-viz-CatalinaMedina".
+#> ✔ Mirrored repo "example-course-federicazoe/week01-data-viz" to repo "example-course-federicazoe/week01-data-viz-felipe-jones".
+#> ✔ User "CatalinaMedina" given "push" access to repo "example-course-federicazoe/week01-data-viz-CatalinaMedina"
+#> ✔ User "felipe-jones" given "push" access to repo "example-course-federicazoe/week01-data-viz-felipe-jones"
+```
+
+---
+
+## 3. Grading: ghclass 
+
+3.1 Collect students' work
+
+```{r, eval=FALSE}
+local_repo_clone(
+  repo = org_repos("example-course-federicazoe", "week01-data-viz"),
+  local_path = "demonstration-materials/github-demo/week01-data-viz"
+)
+```  
+  
+```{r, eval = FALSE}
+#> ✓ Cloned "example-course-federicazoe/week01-data-viz".
+#> ✔ Cloned "example-course-federicazoe/week01-data-viz-CatalinaMedina".
+#> ✔ Cloned "example-course-federicazoe/week01-data-viz-felipe-jones".
+```
+
+---
+
+## 3. Grading: gradetools 
+
+3.2 Take notes of issues while grading
+
+```{r, eval=FALSE}
+
+{{assist_advanced_grading(}}
+  rubric_path,
+  roster_path,
+  grading_progress_log_path,
+  final_grade_sheet_path,
+  example_assignment_path,
+  example_feedback_path,
+  example_student_identifier,
+  {{github_issues = TRUE}}
+)
+
+```
+
+---
+
+## 3. Grading: gradetools 
+
+3.2 Take notes of issues while grading
+
+```{r, eval=FALSE}
+
+assist_advanced_grading(
+  {{rubric_path,}}
+  {{roster_path,}}
+  {{grading_progress_log_path,}}
+  {{final_grade_sheet_path,}}
+  {{example_assignment_path,}}
+  {{example_feedback_path,}}
+  {{example_student_identifier,}}
+  github_issues = TRUE
+)
+
+```
+
+Note: the other arguments are the same as before.
+
+
+---
+
+## 3. Grading: gradetools 
 
 .pull-left-small[
 
-- Take note of issues while grading
+3.2 Take notes of issues while grading
 
 ]
 
@@ -168,11 +478,11 @@ knitr::include_graphics("figures/github-take-note-issue.png")
 
 ---
 
-## How does gradetools interact with GitHub?
+## 3. Grading: gradetools 
 
 .pull-left-small[
 
-- Take note of issues while grading
+3.2 Take notes of issues while grading
 
 ]
 
@@ -186,32 +496,13 @@ knitr::include_graphics("figures/github-issue-title.png")
 
 ---
 
-## How does gradetools interact with GitHub?
+## 3. Grading: gradetools 
 
 .pull-left-small[
 
-- Take note of issues while grading
+3.2 Take notes of issues while grading
 
-- Create issues in students (or team) repos
-
-]
-
-.pull-right-large[
-
-```{r, eval=FALSE}
-push_to_github()
-```
-
-]
----
-
-## How does gradetools interact with GitHub?
-
-.pull-left-small[
-
-- Take note of issues while grading
-
-- Create issues in students (or team) repos
+3.3 Create issues in students (or team) repos
 
 ]
 
@@ -225,15 +516,15 @@ knitr::include_graphics("figures/github-issue-created.png")
 
 ---
 
-## How does gradetools interact with GitHub?
+## 3. Grading: gradetools 
 
 .pull-left-small[
 
-- Take note of issues while grading
+3.2 Take notes of issues while grading
 
-- Create issues in students (or team) repos
+3.3 Create issues in students (or team) repos
 
-- Push feedback files
+3.4 Push feedback files
 
 ]
 
@@ -247,384 +538,144 @@ knitr::include_graphics("figures/github-pushed-feedback.png")
 
 ---
 
-background-image: url(figures/github-logo.png)
-background-position: top right
+## 3. Grading: gradetools 
 
-## Hands-on!
-
-In GitHub:
-
---
-
-- Create a new [GitHub organization](https://docs.github.com/en/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)
-
-  - name it `uscots-gradetools-your GitHub username`
-
---
-
-- Fork the repository [final-project-team-gamma](https://github.com/gradetools-test-course/final-project-team-YOUR_GITHUB_USERNAME) from the [gradetools-test-course](https://github.com/gradetools-test-course) organization into your new organization
-
---
-
-- Change the name of the repo by filling-in your GitHub username
-
-
----
-
-background-image: url(https://d33wubrfki0l68.cloudfront.net/7e89f71ee68cff45427e783fdc58510a9e32dfc9/0da76/wp-content/uploads/2018/10/rstudio-logo-white.png)
-background-position: top right
-
-## Hands-on!
-
-In RStudio:
-
---
-
-- Fork our `gradetools-USCOTS2023` repo if you haven't done yet
-
---
-
-- Install and load [ghclass](https://rundel.github.io/ghclass/index.html)
-
-```{r, eval=FALSE}
-install.packages("ghclass")
-library(ghclass)
-```
-
----
-
-background-image: url(https://d33wubrfki0l68.cloudfront.net/7e89f71ee68cff45427e783fdc58510a9e32dfc9/0da76/wp-content/uploads/2018/10/rstudio-logo-white.png)
-background-position: top right
-
-## Hands-on!
-
-In RStudio<sup>1</sup>:
-
-- Pull the repo `final-project-team-gamma` from your organization locally
-
-```{r, eval=FALSE}
-local_repo_clone(
-  repo = org_repos(org = "YOUR ORGANIZATION", 
-                            filter = "final-project-team"),
-  local_path = "final-project-team-repos"
-)
-```
-
-```{r, eval = FALSE}
-> ✔ Cloned "YOUR ORGANIZATION/final-project-team-gamma".
-```
-
-.footnote[[1] Prerequisites: GitHub token setup]
-
-
----
-
-class: middle
-
-## Hands-on: preparing roster
-
-.pull-left[
-
-- Make minimal roster
-
-- A column named `student_identifier` 
-
-  - must be your GitHub username
-
-]
-
-.pull-right[
-  
-|  student_identifier  | 
-|----------------------|
-| YOUR GITHUB USERNAME | 
-  
-]
-
----
-
-class: middle
-
-## Hands-on: prepare roster
-
-Example roster
-
-```{r, eval=FALSE}
-roster <- data.frame(
-  student_identifier = c("YOUR GITHUB USERNAME")
-)
-write_csv(roster, "roster.csv")
-```
-
-
----
-
-class: middle
-
-## Hands-on: rubric
-
-- The repo has a single file named `presentation.Rmd`
-
---
-
-- We included the rubric in the folder `demonstration-materials/github-demo`
-
----
-
-class: middle
-
-## Hands-on: grading
-
-- We are going to use `assist_advanced_grading(..., github_issues = TRUE)` to grade
-
----
-
-## Hands-on: grading
+Create issues and push feedback files to GitHub
 
 ```{r, eval=FALSE}
 
-assist_advanced_grading(
-  rubric_path,
-  roster_path,
-  grading_progress_log_path,
-  final_grade_sheet_path,
-  example_assignment_path,
-  example_feedback_path,
-  example_student_identifier,
-  github_issues = TRUE
-)
-
-```
-
----
-
-## Hands-on: grading
-
-```{r, eval=FALSE}
-
-assist_advanced_grading(
-  {{rubric_path,}}
-  {{roster_path,}}
-  grading_progress_log_path,
-  final_grade_sheet_path,
-  example_assignment_path,
-  example_feedback_path,
-  example_student_identifier,
-  github_issues = TRUE
-)
-
-```
-
-_Reminder:_ These are the paths where rubric and roster are stored.
-
-
----
-
-## Hands-on: grading
-
-```{r, eval=FALSE}
-
-assist_advanced_grading(
-  rubric_path,
-  roster_path,
-  {{grading_progress_log_path,}}
-  {{final_grade_sheet_path,}}
-  example_assignment_path,
-  example_feedback_path,
-  example_student_identifier,
-  github_issues = TRUE
-)
-
-```
-
-_Reminder:_  These are the paths where we want to store grading-progress files.
-
----
-
-## Hands-on: grading
-
-```{r, eval=FALSE}
-
-assist_advanced_grading(
-  rubric_path,
-  roster_path,
-  grading_progress_log_path,
-  final_grade_sheet_path,
-  {{example_assignment_path,}}
-  {{example_feedback_path,}}
-  {{example_student_identifier,}}
-  github_issues = TRUE
-)
-
-```
-
-_Reminder:_  These are, respectively, the path to `presentation.Rmd`, the path where we want to store the feedback file and your GitHub username.
-
----
-
-## Hands-on: grading
-
-```{r, eval=FALSE}
-
-assist_advanced_grading(
-  rubric_path,
-  roster_path,
-  grading_progress_log_path,
-  final_grade_sheet_path,
-  example_assignment_path,
-  example_feedback_path,
-  example_student_identifier,
-  {{github_issues = TRUE}}
-)
-
-```
-
-**New:**  These must be set to `TRUE` to enable annotating GitHub issues while grading.
-
----
-
-## Hands-on: grading
-
-- After the presentation has been open, we can _knit it_ and browse it in the _Viewer pane_
-
---
-
-- First, take a note of an issue for improving the title
-
-  - Enter **prompt 'i'**
-
---
-
-- Next, assign a rubric item
-
---
-
-- Finally, give some encouraging general feedback
-
----
-
-## Hands-on: creating issues and pushing feedback
-
-- Use function `push_to_github()`:
-
-
-```{r, eval=FALSE}
-push_to_github (
+{{push_to_github(}}
   grading_progress_log_path,
   class_github_name,
-  example_github_repo,
   example_identifier,
-  push_feedback,
-  create_issues
-)
-```
-
-
----
-
-## Hands-on: creating issues and pushing feedback
-
-```{r, eval=FALSE}
-push_to_github (
-  {{grading_progress_log_path,}}
-  class_github_name,
   example_github_repo,
-  example_identifier,
-  push_feedback,
-  create_issues
-)
-```
-
-This is the path provided when using `assist_advanced_grading()`, where the file `grading_progress_log.csv` was stored.
-
----
-
-## Hands-on: creating issues and pushing feedback
-
-```{r, eval=FALSE}
-push_to_github (
-  grading_progress_log_path,
-  {{class_github_name,}}
-  example_github_repo,
-  example_identifier,
-  push_feedback,
-  create_issues
-)
-```
-
-This is the name of your **GitHub organization**.
-
----
-
-## Hands-on: creating issues and pushing feedback
-
-
-```{r, eval=FALSE}
-push_to_github (
-  grading_progress_log_path,
-  class_github_name,
-  {{example_github_repo,}}
-  example_identifier,
-  push_feedback,
-  create_issues
-)
-```
-
-This is the name of the repo where the assignment is.
-
----
-
-## Hands-on: creating issues and pushing feedback
-
-```{r, eval=FALSE}
-push_to_github (
-  grading_progress_log_path,
-  class_github_name,
-  example_github_repo,
-  {{example_identifier,}}
-  push_feedback,
-  create_issues
-)
-```
-
-This is your GitHub username.
-
----
-
-## Hands-on: creating issues and pushing feedback
-
-```{r, eval=FALSE}
-push_to_github (
-  grading_progress_log_path,
-  class_github_name,
-  example_github_repo,
-  example_identifier,
   {{push_feedback = TRUE,}}
   {{create_issues = TRUE}}
 )
-```
 
-These must be set to TRUE if we want to both push feedback and create issues.
+```
 
 ---
 
+## 3. Grading: gradetools 
+
+Create issues and push feedback files to GitHub
+
+```{r, eval=FALSE}
+
+push_to_github(
+  {{grading_progress_log_path,}}
+  class_github_name,
+  example_identifier,
+  example_github_repo,
+  push_feedback = TRUE,
+  create_issues = TRUE
+)
+
+```
+
+Where grading log was stored while grading.
+
+---
+
+## 3. Grading: gradetools 
+
+Create issues and push feedback files to GitHub
+
+```{r, eval=FALSE}
+
+push_to_github(
+  grading_progress_log_path,
+  {{class_github_name,}}
+  example_identifier,
+  example_github_repo,
+  push_feedback = TRUE,
+  create_issues = TRUE
+)
+
+```
+
+The name of the GitHub organization (e.g. `example-course-federicazoe`).
+
+---
+
+## 3. Grading: gradetools 
+
+Create issues and push feedback files to GitHub
+
+```{r, eval=FALSE}
+
+push_to_github(
+  grading_progress_log_path,
+  class_github_name,
+  {{example_identifier,}}
+  example_github_repo,
+  push_feedback = TRUE,
+  create_issues = TRUE
+)
+
+```
+
+An example GitHub identifier (e.g. `CatalinaMedina`).
+
+---
+## 3. Grading: gradetools 
+
+Create issues and push feedback files to GitHub
+
+```{r, eval=FALSE}
+
+push_to_github(
+  grading_progress_log_path,
+  class_github_name,
+  example_identifier,
+  {{example_github_repo,}}
+  push_feedback = TRUE,
+  create_issues = TRUE
+)
+
+```
+
+An example GitHub repo for the assignment (e.g. `week01-data-viz-CatalinaMedina`).
+
+---
+## 3. Grading: gradetools 
+
+Create issues and push feedback files to GitHub
+
+```{r, eval=FALSE}
+push_to_github(
+  grading_progress_log_path = "grade-log.csv",
+  class_github_name = "example-course-federicazoe",
+  example_identifier = "CatalinaMedina",
+  example_github_repo = "week01-data-viz-CatalinaMedina",
+  push_feedback = TRUE,
+  create_issues = TRUE
+)
+```
+
+```{r, eval=FALSE}
+#> ✔ Added file "quiz01-feedback.Rmd" to repo "example-course-federicazoe/week01-data-viz-CatalinaMedina".
+#> ✔ Created issue "Submit for partial credit" for repo "example-course-federicazoe/week01-data-viz-CatalinaMedina".
+```
+
+---
 
 class: middle, center
 
 <div class="row">
   <div class="column_left">
-    <img src="figures/final-diagram-left.png" alt="Full preparation and inputs boxes in large diagram previously shown." style="width:100%">
+    <img src="figures/final-diagram-left.png" alt="Snow" style="width:100%">
   </div>
   <div class="column_center">
-    <img src="figures/final-diagram-center.png" alt="Full grading with gradetools box in large diagram previously shown." style="width:100%">
+    <img src="figures/final-diagram-center.png" alt="Below, a rounded rectangle of light blue color saying 'add new rubric items while grading'. Below, another rounded rectangle of light blue color saying 'give personalized feedback'. Below, another rounded rectangle of light blue color saying 'regrade specified questions and specified students'. Below, another rounded rectangle of light blue color saying 'take note of GitHub issues to be created in students' repos. At the bottom, a legend that says 'gradetools' and 'yellow' for core, 'additional' for light blue." style="width:100%">
   </div>
   <div class="column_right">
-    <img src="figures/final-diagram-right.png" alt="Full outputs and finalization boxes in large diagram previously shown." style="width:100%">
+    <img src="figures/final-diagram-right.png" alt="The square where the outputs are listed is linked to text box that reads '3. Finalization', which is the header of a rounded transparent rectangle around two gray-filled rounded rectangles that read 'upload the grade sheet' and 'distribute the feedback'. Nested within this last gray rectangle there are two smaller light blue colored rectangles that read 'push feedback files to GitHub' and 'create issues in students'repos on GitHub'" style="width:100%">
   </div>
 </div>
 
 ---
-
 
 class: middle
 

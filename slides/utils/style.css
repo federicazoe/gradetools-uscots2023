@@ -329,6 +329,7 @@ table.display td { white-space: nowrap; }
 .footnote{
     position: fixed;
     bottom: 33px;
+    left: 33px;
     font-size:18px;
     font-family: 'Lora';
     color:whitesmoke;

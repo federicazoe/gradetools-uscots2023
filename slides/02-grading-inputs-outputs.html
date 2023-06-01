@@ -1,0 +1,1167 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>02-grading-inputs-outputs.knit</title>
+    <meta charset="utf-8" />
+    <script src="libs/header-attrs-2.21/header-attrs.js"></script>
+    <script src="libs/htmlwidgets-1.6.2/htmlwidgets.js"></script>
+    <link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+    <script src="libs/datatables-binding-0.27/datatables.js"></script>
+    <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+    <link href="libs/dt-core-1.12.1/css/jquery.dataTables.min.css" rel="stylesheet" />
+    <link href="libs/dt-core-1.12.1/css/jquery.dataTables.extra.css" rel="stylesheet" />
+    <script src="libs/dt-core-1.12.1/js/jquery.dataTables.min.js"></script>
+    <link href="libs/dt-ext-fixedcolumns-1.12.1/css/fixedColumns.dataTables.min.css" rel="stylesheet" />
+    <script src="libs/dt-ext-fixedcolumns-1.12.1/js/dataTables.fixedColumns.min.js"></script>
+    <link href="libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet" />
+    <script src="libs/crosstalk-1.2.0/js/crosstalk.min.js"></script>
+    <link rel="stylesheet" href="utils/style.css" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" type="text/css" />
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+
+class: middle, center
+
+# Grading inputs &amp; outputs
+
+
+---
+
+class: middle, left
+
+## Function call
+
+For the demo before, we ran
+
+
+```r
+assist_grading(
+  rubric_path = "rubric.csv", 
+  roster_path = "roster.csv", 
+  grading_progress_log_path = "grading-progress-log.csv", 
+  final_grade_sheet_path = "quiz01-final-grade-sheet.csv", 
+  example_assignment_path = "quiz01/quiz01-BaronPoisson.Rmd",
+  example_feedback_path = "quiz01/quiz01-BaronPoisson-feedback.html",
+  example_student_identifier = "BaronPoisson"
+)
+```
+
+---
+
+class: middle, left
+
+## Function call
+
+
+```r
+assist_grading(
+*  rubric_path = "rubric.csv", 
+  roster_path = "roster.csv", 
+  grading_progress_log_path = "grading-progress-log.csv", 
+  final_grade_sheet_path = "quiz01-final-grade-sheet.csv", 
+  example_assignment_path = "quiz01/quiz01-BaronPoisson.Rmd",
+  example_feedback_path = "quiz01/quiz01-BaronPoisson-feedback.html",
+  example_student_identifier = "BaronPoisson"
+)
+```
+
+Location of the rubric
+
+---
+
+class: middle, left
+
+## Function call
+
+
+```r
+assist_grading(
+  rubric_path = "rubric.csv", 
+*  roster_path = "roster.csv", 
+  grading_progress_log_path = "grading-progress-log.csv", 
+  final_grade_sheet_path = "quiz01-final-grade-sheet.csv", 
+  example_assignment_path = "quiz01/quiz01-BaronPoisson.Rmd",
+  example_feedback_path = "quiz01/quiz01-BaronPoisson-feedback.html",
+  example_student_identifier = "BaronPoisson"
+)
+```
+
+Location of the roster
+
+---
+
+class: middle, left
+
+## Function call
+
+
+```r
+assist_grading(
+  rubric_path = "rubric.csv", 
+  roster_path = "roster.csv", 
+*  grading_progress_log_path = "grading-progress-log.csv", 
+*  final_grade_sheet_path = "quiz01-final-grade-sheet.csv", 
+  example_assignment_path = "quiz01/quiz01-BaronPoisson.Rmd",
+  example_feedback_path = "quiz01/quiz01-BaronPoisson-feedback.html",
+  example_student_identifier = "BaronPoisson"
+)
+```
+
+Where we want the grading progress and the final grade book to be stored
+
+---
+
+
+class: middle, left
+
+## Function call
+
+
+```r
+assist_grading(
+  rubric_path = "rubric.csv", 
+  roster_path = "roster.csv", 
+  grading_progress_log_path = "grading-progress-log.csv", 
+  final_grade_sheet_path = "quiz01-final-grade-sheet.csv", 
+*  example_assignment_path = "quiz01/quiz01-BaronPoisson.Rmd", 
+  example_feedback_path = "quiz01/quiz01-BaronPoisson-feedback.html",
+  example_student_identifier = "BaronPoisson"
+)
+```
+
+Location of one student's assignment submission
+
+---
+
+class: middle, left
+
+## Function call
+
+
+```r
+assist_grading(
+  rubric_path = "rubric.csv", 
+  roster_path = "roster.csv", 
+  grading_progress_log_path = "grading-progress-log.csv",
+  final_grade_sheet_path = "quiz01-final-grade-sheet.csv", 
+  example_assignment_path = "quiz01/quiz01-BaronPoisson.Rmd", 
+*  example_feedback_path = "quiz01/quiz01-BaronPoisson-feedback.html", 
+  example_student_identifier = "BaronPoisson"
+)
+```
+
+Where we want their feedback file to be stored
+
+
+---
+
+class: middle, left
+
+## Function call
+
+
+```r
+assist_grading(
+  rubric_path = "rubric.csv", 
+  roster_path = "roster.csv", 
+  grading_progress_log_path = "grading-progress-log.csv", 
+  final_grade_sheet_path = "quiz01-final-grade-sheet.csv", 
+*  example_assignment_path = "quiz01/quiz01-BaronPoisson.Rmd", 
+*  example_feedback_path = "quiz01/quiz01-BaronPoisson-feedback.html", 
+  example_student_identifier = "BaronPoisson"
+)
+```
+
+Note: we only have to provide the locations of the assignment and feedback files for **one student!**
+
+---
+
+class: middle, left
+
+## Function call
+
+
+```r
+assist_grading(
+  rubric_path = "rubric.csv", 
+  roster_path = "roster.csv", 
+  grading_progress_log_path = "grading-progress-log.csv",
+  final_grade_sheet_path = "quiz01-final-grade-sheet.csv", 
+  example_assignment_path = "quiz01/quiz01-BaronPoisson.Rmd", 
+  example_feedback_path = "quiz01/quiz01-BaronPoisson-feedback.html",
+*  example_student_identifier = "BaronPoisson"
+)
+```
+
+And that student's identifier (present in the roster)
+
+---
+
+class: middle, left
+
+## Function call
+
+
+```r
+assist_grading(
+*  rubric_path = "rubric.csv",  
+*  roster_path = "roster.csv",  
+  grading_progress_log_path = "grading-progress-log.csv",
+  final_grade_sheet_path = "quiz01-final-grade-sheet.csv", 
+*  example_assignment_path = "quiz01/quiz01-BaronPoisson.Rmd",
+  example_feedback_path = "quiz01/quiz01-BaronPoisson-feedback.html"  
+*  example_student_identifier = "BaronPoisson"  
+)
+```
+
+So these are the **inputs** of grading 
+
+---
+
+class: middle, left
+
+## Function call
+
+
+```r
+assist_grading(
+  rubric_path = "rubric.csv",  
+  roster_path = "roster.csv",  
+*  grading_progress_log_path = "grading-progress-log.csv", 
+*  final_grade_sheet_path = "quiz01-final-grade-sheet.csv", 
+  example_assignment_path = "quiz01/quiz01-BaronPoisson.Rmd",
+*  example_feedback_path = "quiz01/quiz01-BaronPoisson-feedback.html", 
+  example_student_identifier = "BaronPoisson"
+)
+```
+
+And these are the **outputs**
+
+---
+
+class: middle, center
+
+&lt;div class="row"&gt;
+  &lt;div class="column_left"&gt;
+    &lt;img src="figures/final-diagram-left-3.png" alt="A box labeled input with three bullet points: roster, rubric, and assignments." style="width:100%"&gt;  &lt;/div&gt;
+  &lt;div class="column_center"&gt;
+    &lt;img src="figures/final-diagram-center-3.png" alt="Three rounded rectangles of yellow color saying 'automatically open/close assignment files', 'assign scores and feedback to each assignment given the applied rubric items', and 'store grading progress'. Below this rounded rectangle is blank space as if more rectangles are still not shown." style="width:100%"&gt;
+  &lt;/div&gt;
+  &lt;div class="column_right"&gt;
+    &lt;img src="figures/final-diagram-right-3.png" alt="A box labeled outputs with two bullet points: grade sheet and feedback files." style="width:100%"&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+---
+
+class: middle, center
+
+&lt;div class="row"&gt;
+  &lt;div class="column_left"&gt;
+    &lt;img src="figures/final-diagram-left-3-roster.png" alt="A box labeled input with three bullet points: roster, rubric, and assignments. The bullet point with the word roster is highlighted." style="width:100%"&gt;  &lt;/div&gt;
+  &lt;div class="column_center"&gt;
+    &lt;img src="figures/final-diagram-center-3.png" alt="Three rounded rectangles of yellow color saying 'automatically open/close assignment files', 'assign scores and feedback to each assignment given the applied rubric items', and 'store grading progress'. Below this rounded rectangle is blank space as if more rectangles are still not shown." style="width:100%"&gt;
+  &lt;/div&gt;
+  &lt;div class="column_right"&gt;
+    &lt;img src="figures/final-diagram-right-3.png" alt="A box labeled outputs with two bullet points: grade sheet and feedback files." style="width:100%"&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+---
+
+class: middle
+
+## Roster: formatting
+
+- .csv file
+
+--
+
+- Must have `student_identifier`  column
+  - Can be anything unique to the student, for example:  
+      - Name
+      - Student id
+      - GitHub username
+  
+---
+
+class: center
+
+## Roster: formatting
+
+&lt;img src="figures/roster-minimal.png" alt="A spreadsheet with a single column. The first row reads student_identifier. The other three rows read BaronPoisson, sergent-gamma and student_T" width="60%" style="display: block; margin: auto;" /&gt;
+
+---
+
+class: middle
+
+## Roster: formatting
+
+- .csv file
+
+- Must have `student_identifier`  column
+  - Can be anything unique to the student, for example:  
+      - Name
+      - Student id
+      - GitHub username
+
+--
+
+- other columns can be present
+
+---
+
+class: center
+
+## Roster
+  
+&lt;img src="figures/roster-extra-columns.png" alt="A spreadsheet with four columns. The first row reads student_identifier, first name, last name, student ID. The other rows contain the corresponding information for three fictitious students." width="60%" style="display: block; margin: auto;" /&gt;
+
+---
+
+class: center, middle
+
+## Roster &lt;i class="fa-solid fa-arrow-right"&gt;&lt;/i&gt; Grade book
+  
+&lt;img src="figures/roster_to_gradebook.png" alt="On the left, a screenshot of a spreadsheet with four columns. The first row reads student_identifier, first name, last name, student ID. The other rows contain the corresponding information for three fictitious students. In the middle, a yellow arrow pointing from the figure on the left to the figure on the right. On the right, a screenshot of the same spreadsheet as the one shown on the left, but with an extra column indicating a numeric grade for each student." width="100%" style="display: block; margin: auto;" /&gt;
+
+---
+
+class: middle
+
+## Roster
+
+- used to **create the grade book**
+
+--
+
+- used to **find student submission files**
+  - student identifiers from the roster must be the only thing unique in the file paths!
+  
+---
+
+class: middle, center
+
+&lt;div class="row"&gt;
+  &lt;div class="column_left"&gt;
+    &lt;img src="figures/final-diagram-left-3.png" alt="A box labeled input with three bullet points: roster, rubric, and assignments." style="width:100%"&gt;  &lt;/div&gt;
+  &lt;div class="column_center"&gt;
+    &lt;img src="figures/final-diagram-center-3.png" alt="Three rounded rectangles of yellow color saying 'automatically open/close assignment files', 'assign scores and feedback to each assignment given the applied rubric items', and 'store grading progress'. Below this rounded rectangle is blank space as if more rectangles are still not shown." style="width:100%"&gt;
+  &lt;/div&gt;
+  &lt;div class="column_right"&gt;
+    &lt;img src="figures/final-diagram-right-3.png" alt="A box labeled outputs with two bullet points: grade sheet and feedback files." style="width:100%"&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+---
+
+class: middle, center
+
+&lt;div class="row"&gt;
+  &lt;div class="column_left"&gt;
+    &lt;img src="figures/final-diagram-left-3-assignments.png" alt="A box labeled input with three bullet points: roster, rubric, and assignments. The bullet point with the word assignments is highlighted." style="width:100%"&gt;  &lt;/div&gt;
+  &lt;div class="column_center"&gt;
+    &lt;img src="figures/final-diagram-center-3.png" alt="Three rounded rectangles of yellow color saying 'automatically open/close assignment files', 'assign scores and feedback to each assignment given the applied rubric items', and 'store grading progress'. Below this rounded rectangle is blank space as if more rectangles are still not shown." style="width:100%"&gt;
+  &lt;/div&gt;
+  &lt;div class="column_right"&gt;
+    &lt;img src="figures/final-diagram-right-3.png" alt="A box labeled outputs with two bullet points: grade sheet and feedback files." style="width:100%"&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+---
+
+
+.pull-left2[
+
+## Assignment directories
+
+- How submissions must be stored
+
+
+]
+
+.pull-right2[
+
+&lt;img src="figures/demo-assignments-long-rmd.png" alt="A folder structure titled quiz-01. There are three files, one for each student." width="100%" style="display: block; margin: auto 0 auto auto;" /&gt;
+
+]
+
+---
+
+.pull-left2[
+
+## Assignment directories
+
+- How submissions must be stored
+- Each student has a unique identifier:  
+e.g. `BaronPoisson`
+
+]
+
+.pull-right2[
+
+&lt;img src="figures/demo-assignments-long-rmd-unique-part.png" alt="A folder structure titled quiz-01. There are three files, one for each student." width="100%" style="display: block; margin: auto 0 auto auto;" /&gt;
+
+]
+
+---
+
+.pull-left2[
+
+## Assignment directories
+
+- How submissions must be stored
+- Each student has a unique identifier:  
+e.g. `BaronPoisson`
+- The **rest of the path is common to all** students:  
+e.g. `quiz01/quiz01-XXXXXX.Rmd`
+]
+
+.pull-right2[
+
+&lt;img src="figures/demo-assignments-long-rmd-common-part.png" alt="A folder structure titled quiz-01. There are three files, one for each student." width="100%" style="display: block; margin: auto 0 auto auto;" /&gt;
+
+]
+
+---
+
+.pull-left2[
+
+## Assignment directories
+
+- How submissions must be stored
+- Each student has a unique identifier:  
+e.g. `BaronPoisson`
+- The **rest of the path is common to all** students:  
+e.g. `quiz01/quiz01-XXXXXX.Rmd`
+- All extensions that can be opened with `navigateToFile()` are supported:  
+e.g. `.Rmd`
+
+
+]
+
+.pull-right2[
+
+&lt;img src="figures/demo-assignments-long-rmd-format.png" alt="A folder structure titled quiz-01. There are three files, one for each student." width="100%" style="display: block; margin: auto 0 auto auto;" /&gt;
+
+]
+
+---
+
+.pull-left2[
+
+## Assignment directories
+
+- How submissions must be stored
+- Each student has a unique identifier:  
+e.g. `BaronPoisson`
+- The **rest of the path is common to all** students:  
+e.g. `quiz01/quiz01-XXXXXX.Rmd`
+- All extensions that can be opened with `navigateToFile()` are supported:  
+e.g. `.Rmd`, `.R`
+]
+
+.pull-right2[
+
+&lt;img src="figures/demo-assignments-long-r.png" alt="A folder structure titled quiz-01. There are three files, one for each student." width="100%" style="display: block; margin: auto 0 auto auto;" /&gt;
+
+]
+
+
+---
+
+.pull-left2[
+
+## Assignment directories
+
+- How submissions must be stored
+- Each student has a unique identifier:  
+e.g. `BaronPoisson`
+- The **rest of the path is common to all** students:  
+e.g. `quiz01/quiz01-XXXXXX.Rmd`
+- All extensions that can be opened with `navigateToFile()` are supported:  
+e.g. `.Rmd`, `.R`, `.qmd`, `.py`, `.md`, etc.
+]
+
+
+---
+
+## Subfolders: supported
+
+
+&lt;div class="container"&gt;
+  &lt;div class="row"&gt;
+    &lt;div class="col-sm"&gt;
+    &lt;img src="figures/subfolders-same-filename.jpg" alt="A folder structure titled quiz01. There are three subfolders, one for each student. Each subfolder has a file named quiz01.Rmd. A green validation mark on the top right corner indicates that this is a valid directory structure." align="left" width="30%" style="padding:15px"&gt;
+    &lt;/div&gt;
+    &lt;div class="col-sm"&gt;
+    &lt;/div&gt;
+    &lt;div class="col-sm"&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+
+---
+
+
+## Subfolders: supported
+
+
+&lt;div class="container"&gt;
+  &lt;div class="row"&gt;
+    &lt;div class="col-sm"&gt;
+    &lt;img src="figures/subfolders-same-filename.jpg" alt="A folder structure titled quiz01. There are three subfolders, one for each student. Each subfolder has a file named quiz01.Rmd. A green validation mark on the top right corner indicates that this is a valid directory structure." align="left" width="30%" style="padding:15px"&gt;
+    &lt;/div&gt;
+    &lt;div class="col-sm"&gt;
+    &lt;img src="figures/subfolders-other-file.jpg" alt="A folder structure titled quiz01. There are three subfolders, one for each student. Each subfolder has a file named quiz01.Rmd. One subfolder also has a file called quiz01-DRAFT.Rmd. A green validation mark on the top right corner indicates that this is a valid directory structure." align="left" width="30%" style="padding:15px"&gt;
+    &lt;/div&gt;
+    &lt;div class="col-sm" style="color:whitesmoke;"&gt;
+        Subfolders can contain other files.
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+
+---
+
+
+## Subfolders: supported
+
+
+&lt;div class="container"&gt;
+  &lt;div class="row"&gt;
+    &lt;div class="col-sm"&gt;
+    &lt;img src="figures/subfolders-same-filename.jpg" alt="A folder structure titled quiz01. There are three subfolders, one for each student. Each subfolder has a file named quiz01.Rmd. A green validation mark on the top right corner indicates that this is a valid directory structure." align="left" width="30%" style="padding:15px"&gt;
+    &lt;/div&gt;
+    &lt;div class="col-sm"&gt;
+    &lt;img src="figures/subfolders-other-file.jpg" alt="A folder structure titled quiz01. There are three subfolders, one for each student. Each subfolder has a file named quiz01.Rmd. One subfolder also has a file called quiz01-DRAFT.Rmd. A green validation mark on the top right corner indicates that this is a valid directory structure." align="left" width="30%" style="padding:15px"&gt;
+    &lt;/div&gt;
+    &lt;div class="col-sm" style="color:whitesmoke;"&gt;
+    &lt;img src="figures/subfolders-individual-filename.jpg" alt="A folder structure titled quiz01. There are three subfolders, one for each student. In one of the student's subfolder, the quiz file in a separate subfolder. A red cross marks this folder structure as incorrect." align="left" width="30%" style="padding:15px"&gt; 
+    Student identifier might be present multiple times.
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+
+---
+
+class: middle, center
+
+&lt;div class="row"&gt;
+  &lt;div class="column_left"&gt;
+    &lt;img src="figures/final-diagram-left-3-rubric.png" alt="A box labeled input with three bullet points: roster, rubric, and assignments. The bullet point with the word rubric is highlighted." style="width:100%"&gt;  &lt;/div&gt;
+  &lt;div class="column_center"&gt;
+    &lt;img src="figures/final-diagram-center-3.png" alt="Three rounded rectangles of yellow color saying 'automatically open/close assignment files', 'assign scores and feedback to each assignment given the applied rubric items', and 'store grading progress'. Below this rounded rectangle is blank space as if more rectangles are still not shown." style="width:100%"&gt;
+  &lt;/div&gt;
+  &lt;div class="column_right"&gt;
+    &lt;img src="figures/final-diagram-right-3.png" alt="A box labeled outputs with two bullet points: grade sheet and feedback files." style="width:100%"&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+---
+
+## Consider the following situation:
+
+We are grading an assignment with a question asking the students to compute the **standard deviation of a sample**.  
+
+--
+
+Some mistakes we might expect some students to make:
+
+- compute the **population standard deviation** instead of the sample one 
+
+- compute the **variance** instead
+
+--
+
+These would be natural items to have in a rubric where we would provide an explanation and specify the point deduction for each scenario.
+
+
+---
+
+## Rubric - prompting
+
+.pull-left[
+&lt;img src="figures/rubric-prompt-question1.png" alt="A grading prompt in the RStudio console for question 1 that reads 'Enter one or more of the following options, use -- to separate multiple items.' and shows as options '1a: Population not sample SD [-2]', '1b: Didn't take square root [-1]', '0: Correct [-0%]', '99: Missing [-100%]'." width="100%" style="display: block; margin: auto 0 auto auto;" /&gt;
+]
+
+---
+
+## Rubric - prompting
+
+.pull-left[
+&lt;img src="figures/rubric-prompt-question1-name.png" alt="Same question 1 grading prompt as last figure, but has an orange box around 'Question 1'." width="100%" style="display: block; margin: auto 0 auto auto;" /&gt;
+]
+
+.pull-right[
+- **Name** of question or component
+]
+
+---
+
+## Rubric - prompting
+
+.pull-left[
+&lt;img src="figures/rubric-prompt-question1-rubric-item.png" alt="Same question 1 grading prompt, but has an orange box around '1a: Population not sample SD [-2]'." width="100%" style="display: block; margin: auto 0 auto auto;" /&gt;
+]
+
+.pull-right[
+- Name of question or component
+- **Rubric item**
+]
+
+---
+
+## Rubric - prompting
+
+.pull-left[
+&lt;img src="figures/rubric-prompt-question1-prompt-message.png" alt="Same question 1 grading prompt, but has an orange box around 'Population not sample SD'." width="100%" style="display: block; margin: auto 0 auto auto;" /&gt;
+]
+
+.pull-right[
+- Name of question or component
+- Rubric item
+- **Prompt message** for the grader
+]
+
+
+---
+
+## Rubric - prompting
+
+.pull-left[
+&lt;img src="figures/rubric-prompt-question1-feedback-file.png" alt="Screen shot of feedback file created from assigning the first rubric item to the first question. Contains feedback detailed feedback message describing why the formula they use was incorrect and specifies what should have been used." width="100%" style="display: block; margin: auto 0 auto auto;" /&gt;
+]
+
+.pull-right[
+- Name of question or component
+- Rubric item
+- Prompt message for the grader
+- **Feedback message** for the student
+]
+
+---
+
+## Rubric - prompting
+
+.pull-left[
+&lt;img src="figures/rubric-prompt-question1-points-to-remove.png" alt="Same question 1 grading prompt, but has an orange box around '[-2]'." width="100%" style="display: block; margin: auto 0 auto auto;" /&gt;
+]
+
+.pull-right[
+- Name of question or component
+- Rubric item
+- Prompt message for the grader
+- Feedback message for the student
+- **Points to remove**
+]
+
+---
+
+## Rubric - prompting
+
+.pull-left[
+&lt;img src="figures/rubric-prompt-question1-prompt-code.png" alt="Same question 1 grading prompt, but has an orange box around '1a'." width="100%" style="display: block; margin: auto 0 auto auto;" /&gt;
+]
+
+.pull-right[
+- Name of question or component
+- Rubric item
+- Prompt message for the grader
+- Feedback message for the student
+- Points to remove
+- **Prompt code**
+]
+
+---
+
+
+## Rubric - formatting
+
+The rubric needs to be formatted in a specific way to comply with gradetools
+
+--
+
+To begin formatting your rubric use
+
+```r
+gradetools::create_rubric_template(rubric_path = "Path to your rubric")
+```
+
+--
+
+This will create a csv file with the necessary column names
+
+<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-d6bf0b2e898615f8d3d2" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-d6bf0b2e898615f8d3d2">{"x":{"filter":"none","vertical":false,"extensions":["FixedColumns"],"data":[["1"],[null],[null],[null],[null],[null],[null]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>name<\/th>\n      <th>total_points<\/th>\n      <th>prompt_code<\/th>\n      <th>prompt_message<\/th>\n      <th>feedback<\/th>\n      <th>points_to_remove<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"dom":"t","scrollX":true,"fixedColumns":true,"columnDefs":[{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+
+
+---
+
+## Rubric - formatting
+
+One row of the rubric corresponds to one rubric item
+
+<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-c2cc8855c458e0375724" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-c2cc8855c458e0375724">{"x":{"filter":"none","vertical":false,"autoHideNavigation":true,"data":[["Question 1"],["10"],["1a"],["Population not sample SD"],["The formula you used is ..."],["2"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>name<\/th>\n      <th>total_points<\/th>\n      <th>prompt_code<\/th>\n      <th>prompt_message<\/th>\n      <th>feedback<\/th>\n      <th>points_to_remove<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"scrollX":true,"autoWidth":true,"columnDefs":[{"width":"100%","targets":"_all"}],"pageLength":15,"lengthChange":false,"order":[],"orderClasses":false},"callback":"function(table) {\ntable.page(3).draw(false);\n}"},"evals":["callback"],"jsHooks":[]}</script>
+
+--
+
+- The question name does not need to be present in the assignment
+
+--
+
+- The prompt code must begin with a digit (avoids auto completing)
+
+--
+
+- The prompt message should be concise to appear nicely in console
+
+--
+
+- You can include in line latex and code in feedback message
+
+
+---
+
+## Rubric - formatting
+
+Each question to be graded needs at least one rubric item, but can have as many as desired
+
+--
+
+<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-4f446f2ccda7a0bb04c7" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-4f446f2ccda7a0bb04c7">{"x":{"filter":"none","vertical":false,"autoHideNavigation":true,"data":[["Question 1","Question 1"],["10",null],["1a","1b"],["Population not sample SD","Didn't take square root"],["The formula you used is ...","You calculated the variance..."],["2","1"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>name<\/th>\n      <th>total_points<\/th>\n      <th>prompt_code<\/th>\n      <th>prompt_message<\/th>\n      <th>feedback<\/th>\n      <th>points_to_remove<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"scrollX":true,"autoWidth":true,"columnDefs":[{"width":"100%","targets":"_all"}],"pageLength":15,"lengthChange":false,"order":[],"orderClasses":false},"callback":"function(table) {\ntable.page(3).draw(false);\n}"},"evals":["callback"],"jsHooks":[]}</script>
+
+--
+
+When providing multiple rubric items for one question:
+
+--
+
+- the total points does not need to be specified again
+
+--
+
+- each prompt code for the same question must be unique
+
+---
+
+## Rubric - formatting
+<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-32e487423f724459e468" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-32e487423f724459e468">{"x":{"filter":"none","vertical":false,"autoHideNavigation":true,"data":[["Question 1","Question 1","Question 2"],["10",null,"5"],["1a","1b","1"],["Population not sample SD","Didn't take square root","..."],["The formula you used is ...","You calculated the variance...","..."],["2","1","2"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>name<\/th>\n      <th>total_points<\/th>\n      <th>prompt_code<\/th>\n      <th>prompt_message<\/th>\n      <th>feedback<\/th>\n      <th>points_to_remove<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"scrollX":true,"autoWidth":true,"columnDefs":[{"width":"100%","targets":"_all"}],"pageLength":15,"lengthChange":false,"order":[],"orderClasses":false},"callback":"function(table) {\ntable.page(3).draw(false);\n}"},"evals":["callback"],"jsHooks":[]}</script>
+
+--
+
+After question specific rubric items have been specified, the user can specify two special types of rubric items: "all_questions" and "general_feedback"
+
+
+---
+
+## Rubric - formatting
+
+Sometimes there are rubric items that are common across all questions. These can be created by specifying `name` as **"all_questions"**
+
+--
+
+<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-b8d8abbf3fa7f05d3cb9" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-b8d8abbf3fa7f05d3cb9">{"x":{"filter":"none","vertical":false,"autoHideNavigation":true,"data":[["Question 1","Question 1","Question 2","all_questions"],["10",null,"5",null],["1a","1b","1","0"],["Population not sample SD","Didn't take square root","...","Correct"],["The formula you used is ...","You calculated the variance...","...","Your answer is correct!"],["2","1","2","0"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>name<\/th>\n      <th>total_points<\/th>\n      <th>prompt_code<\/th>\n      <th>prompt_message<\/th>\n      <th>feedback<\/th>\n      <th>points_to_remove<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"scrollX":true,"autoWidth":true,"columnDefs":[{"width":"100%","targets":"_all"}],"pageLength":15,"lengthChange":false,"order":[],"orderClasses":false},"callback":"function(table) {\ntable.page(3).draw(false);\n}"},"evals":["callback"],"jsHooks":[]}</script>
+
+--
+
+`points_to_remove` will be treated as a percentage for each question
+
+---
+
+## Rubric - formatting
+
+Sometimes there are rubric items that are common across all questions. These can be created by specifying `name` as **"all_questions"**
+
+<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-659a7f4c16bce837ae26" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-659a7f4c16bce837ae26">{"x":{"filter":"none","vertical":false,"autoHideNavigation":true,"data":[["Question 1","Question 1","Question 2","all_questions","all_questions"],["10",null,"5",null,null],["1a","1b","1","0","99"],["Population not sample SD","Didn't take square root","...","Correct","Missing"],["The formula you used is ...","You calculated the variance...","...","Your answer is correct!","Your answer is missing."],["2","1","2","0","100"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>name<\/th>\n      <th>total_points<\/th>\n      <th>prompt_code<\/th>\n      <th>prompt_message<\/th>\n      <th>feedback<\/th>\n      <th>points_to_remove<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"scrollX":true,"autoWidth":true,"columnDefs":[{"width":"100%","targets":"_all"}],"pageLength":15,"lengthChange":false,"order":[],"orderClasses":false},"callback":"function(table) {\ntable.page(3).draw(false);\n}"},"evals":["callback"],"jsHooks":[]}</script>
+
+---
+
+## Rubric - formatting
+
+General feedback messages can be specified as rubric items with `name` as **"general_feedback"**. No points are associated with general feedback.
+
+<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-3b69ad239fbc3638a27e" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-3b69ad239fbc3638a27e">{"x":{"filter":"none","vertical":false,"autoHideNavigation":true,"data":[["Question 1","Question 1","Question 2","all_questions","all_questions","general_feedback"],["10",null,"5",null,null,null],["1a","1b","1","0","99","0"],["Population not sample SD","Didn't take square root","...","Correct","Missing","Great job"],["The formula you used is ...","You calculated the variance...","...","Your answer is correct!","Your answer is missing.","Great job on this quiz!"],["2","1","2","0","100",null]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>name<\/th>\n      <th>total_points<\/th>\n      <th>prompt_code<\/th>\n      <th>prompt_message<\/th>\n      <th>feedback<\/th>\n      <th>points_to_remove<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"scrollX":true,"autoWidth":true,"columnDefs":[{"width":"100%","targets":"_all"}],"pageLength":15,"lengthChange":false,"order":[],"orderClasses":false},"callback":"function(table) {\ntable.page(3).draw(false);\n}"},"evals":["callback"],"jsHooks":[]}</script>
+
+
+---
+
+## Rubric - formatting
+
+<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-d5da707cd26a46d5849e" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-d5da707cd26a46d5849e">{"x":{"filter":"none","vertical":false,"autoHideNavigation":true,"data":[["Question 1","Question 1","Question 2","all_questions","all_questions","general_feedback","general_feedback"],["10",null,"5",null,null,null,null],["1a","1b","1","0","99","0","99"],["Population not sample SD","Didn't take square root","...","Correct","Missing","Great job","Office hours"],["The formula you used is ...","You calculated the variance...","...","Your answer is correct!","Your answer is missing.","Great job on this quiz!","Please come to my next office hours and we will go through this quiz together."],["2","1","2","0","100",null,null]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>name<\/th>\n      <th>total_points<\/th>\n      <th>prompt_code<\/th>\n      <th>prompt_message<\/th>\n      <th>feedback<\/th>\n      <th>points_to_remove<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"scrollX":true,"autoWidth":true,"columnDefs":[{"width":"100%","targets":"_all"}],"pageLength":15,"lengthChange":false,"order":[],"orderClasses":false},"callback":"function(table) {\ntable.page(3).draw(false);\n}"},"evals":["callback"],"jsHooks":[]}</script>
+
+
+---
+
+## Rubric - positive grading
+
+You can switch the grading scheme to positive grading
+
+
+```r
+create_rubric_template(
+  rubric_path = "your-chosen-rubric-path.csv",
+*  negative_grading = FALSE
+)
+```
+
+
+Last column will be named `points_to_add` instead of `points_to_remove`
+
+<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-81ef6a0e6dedd9ca8a67" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-81ef6a0e6dedd9ca8a67">{"x":{"filter":"none","vertical":false,"extensions":["FixedColumns"],"data":[["1"],[null],[null],[null],[null],[null],[null]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>name<\/th>\n      <th>total_points<\/th>\n      <th>prompt_code<\/th>\n      <th>prompt_message<\/th>\n      <th>feedback<\/th>\n      <th>points_to_add<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"dom":"t","scrollX":true,"fixedColumns":true,"columnDefs":[{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+
+---
+
+## Preparing materials walkthrough
+
+--
+
+.pull-left[
+
+Done with
+
+&lt;img src="figures/the_boring_side.jpg" alt="Image of the side of a Oatly milk carton with the text 'The boring (but very important) side'." width="80%" style="display: block; margin: auto;" /&gt;
+
+]
+
+--
+
+.pull-right[
+
+- Now, a walk through of preparing materials for grading with gradetools
+
+- Then hands-on session where you will prepare your materials for grading
+
+]
+
+---
+
+## Example: creating an R project
+
+--
+
+- In RStudio: **Click File &gt; New Project** &gt; New Directory &gt; New Project
+- Enter desired directory name and location
+
+&lt;img src="figures/RStudio-file-new-project.png" alt="Zoomed in screen shot of Rstudio with mouse over 'New Project' highlighted under 'File'." width="60%" style="display: block; margin: auto;" /&gt;
+
+---
+
+## Example: creating an R project
+
+- In RStudio: Click File &gt; New Project &gt; **New Directory** &gt; New Project
+- Enter desired directory name and location
+
+&lt;img src="figures/RStudio-create-project.png" alt="Zoomed in screen shot of Rstudio 'New Project Wizard' with 'New Directory' highlighted." width="60%" style="display: block; margin: auto;" /&gt;
+
+---
+
+## Example: creating an R project
+
+- In RStudio: Click File &gt; New Project &gt; New Directory &gt; **New Project**
+- Enter desired directory name and location
+
+&lt;img src="figures/RStudio-new-project.png" alt="Zoomed in screen shot of Rstudio 'New Project Wizard' with 'New Project' highlighted." width="60%" style="display: block; margin: auto;" /&gt;
+
+---
+
+## Example: creating an R project
+
+- In RStudio: Click File &gt; New Project &gt; New Directory &gt; New Project
+- **Enter desired directory name and location**
+
+&lt;img src="figures/RStudio-naming-new-project.png" alt="Zoomed in screen shot of Rstudio 'New Project Wizard' on the page 'Create New Porject'. Prompts user to supply directory name and location." width="60%" style="display: block; margin: auto;" /&gt;
+
+---
+
+## Example: Move grading script
+
+- In RStudio: Click File &gt; New Project &gt; New Directory &gt; New Project
+- Enter desired directory name and location
+- **Now the working directory will be your new project directory**
+    - **Move your `grading-script.R` into this directory**. This script can be found in the `grading-practice` folder
+
+---
+
+## Example: Move submissions into R project
+
+.pull-left[
+- **Move your submissions** to be graded to your new project directory
+]
+
+.pull-right[
+&lt;img src="figures/demo-new-project-folder.png" alt="Screenshot of files panel of RStudio. Shows in 'USCOTS2023-gradetools-practice' folder there is a R project file, 'gradeing-script.R', and a folder called 'quiz01'." width="100%" style="display: block; margin: auto;" /&gt;
+]
+
+---
+
+## Example: Move submissions into R project
+
+.pull-left[
+- **Move your submissions** to be graded to your new project directory
+- **Make sure files comply** with the gradetools file structure rule: student identifier must be present and only part unique to file path
+]
+
+.pull-right[
+&lt;img src="figures/demo-new-project-folder.png" alt="Screenshot of files panel of RStudio. Shows in 'USCOTS2023-gradetools-practice' folder there is a R project file, 'gradeing-script.R', and a folder called 'quiz01'." width="100%" style="display: block; margin: auto;" /&gt;
+
+
+&lt;img src="figures/demo-quiz01-folder.png" alt="Screenshot of files panel of RStudio. Shows in a folder called 'quiz01' there is a data folder and three assignments." width="100%" style="display: block; margin: auto;" /&gt;
+]
+
+---
+
+## Hands-on: prepare project directory (**5 min**)
+
+Apply the steps in the **example** slides to your own material (or the provided grading practice material) to: 
+
+- **create** a new R project 
+
+--
+
+- **add** your grading script and submissions to be graded 
+
+--
+
+- **make** sure submissions are saved appropriately 
+
+--
+
+- **review** your assignment
+    - If you are using the "grading practice" materials instead of your own assignments, review the `data-viz-quiz-answer-key.Rmd`
+
+---
+
+## Example: Create roster
+
+Use you preferred editor (e.g. Excel, Google Sheets, etc.) to create your roster as a csv file
+
+You need a column named `student_identifier` containing the student identifiers
+
+--
+
+| student_identifier |
+|--------------------|
+| BaronPoisson       |
+| sergent-gamma      |
+| student_T          |
+
+---
+
+## Example: Formatting rubric
+
+Now the rubric needs to be formatted, begin by **creating the rubric template**
+
+
+```r
+rubric_location &lt;- "practice-rubric.csv"
+
+gradetools::create_rubric_template(rubric_path = rubric_location)
+```
+
+This will give us the rubric skeleton to fill in
+
+<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-b306e9a78993a54dad49" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-b306e9a78993a54dad49">{"x":{"filter":"none","vertical":false,"extensions":["FixedColumns"],"data":[["1"],[null],[null],[null],[null],[null],[null]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>name<\/th>\n      <th>total_points<\/th>\n      <th>prompt_code<\/th>\n      <th>prompt_message<\/th>\n      <th>feedback<\/th>\n      <th>points_to_remove<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"dom":"t","scrollX":true,"fixedColumns":true,"columnDefs":[{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+
+---
+
+## Example: Formatting rubric
+
+**Open your assignment rubric draft**, the rubric should contain info for the `name`, `total_points`, `feedback`, and `points_to_remove` (or `points_to_add`) columns
+    
+&lt;img src="figures/demo-rubric-draft-pdf.png" alt="Screen shot of Quiz 1 Rubric Draft from 'main-demo' folder." width="80%" style="display: block; margin: auto;" /&gt;
+
+
+---
+
+## Example: Formatting rubric
+
+**Input info** for the `name`, `total_points`, `feedback`, and `points_to_remove` (or `points_to_add`) columns
+
+<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-b2780d6b71e3a66ecc76" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-b2780d6b71e3a66ecc76">{"x":{"filter":"none","vertical":false,"extensions":["FixedColumns"],"data":[["1","2","3","4","5"],["Question 1","Question 1","Question 2","Question 3","Question 3"],["2","NA","2","3","NA"],[null,null,null,null,null],[null,null,null,null,null],["Wrong number of observations and variables. Each row is an observation and each column is a variable.","Misidentified observation, one observation is a bike rental.","Didn't change axis labels from default.","Didn't change axis labels from default.","Didn't answer if bike type seemed to vary by passholder type."],["-1","-1","-0.5","-0.5","-1"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>name<\/th>\n      <th>total_points<\/th>\n      <th>prompt_code<\/th>\n      <th>prompt_message<\/th>\n      <th>feedback<\/th>\n      <th>points_to_remove<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"dom":"t","scrollX":true,"fixedColumns":true,"columnDefs":[{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+
+---
+
+## Example: Formatting rubric
+
+**Create** prompt codes (must begin with a digit) and concise prompt messages
+
+<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-6195ff2658cc9eb6e048" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-6195ff2658cc9eb6e048">{"x":{"filter":"none","vertical":false,"extensions":["FixedColumns"],"data":[["1","2","3","4","5"],["Question 1","Question 1","Question 2","Question 3","Question 3"],["2","NA","2","3","NA"],["1a","1b","1","1","3"],["Wrong # rows and cols","Misidentified obs","Default axes","Default axes","Didn't answer main question"],["Wrong number of observations and variables. Each row is an observation and each column is a variable.","Misidentified observation, one observation is a bike rental.","Didn't change axis labels from default.","Didn't change axis labels from default.","Didn't answer if bike type seemed to vary by passholder type."],["-1","-1","-0.5","-0.5","-1"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>name<\/th>\n      <th>total_points<\/th>\n      <th>prompt_code<\/th>\n      <th>prompt_message<\/th>\n      <th>feedback<\/th>\n      <th>points_to_remove<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"dom":"t","scrollX":true,"fixedColumns":true,"columnDefs":[{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+
+---
+
+## Example: Formatting rubric
+
+Add at least one **"all_questions"** rubric item
+
+<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-4721dab93c3d1e3964dc" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-4721dab93c3d1e3964dc">{"x":{"filter":"none","vertical":false,"extensions":["FixedColumns"],"data":[["1","2","3","4","5","6"],["Question 1","Question 1","Question 2","Question 3","Question 3","all_questions"],["2","NA","2","3","NA",null],["1a","1b","1","1","3","0"],["Wrong # rows and cols","Misidentified obs","Default axes","Default axes","Didn't answer main question","Correct"],["Wrong number of observations and variables. Each row is an observation and each column is a variable.","Misidentified observation, one observation is a bike rental.","Didn't change axis labels from default.","Didn't change axis labels from default.","Didn't answer if bike type seemed to vary by passholder type.","Correct"],["-1","-1","-0.5","-0.5","-1","0"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>name<\/th>\n      <th>total_points<\/th>\n      <th>prompt_code<\/th>\n      <th>prompt_message<\/th>\n      <th>feedback<\/th>\n      <th>points_to_remove<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"dom":"t","scrollX":true,"fixedColumns":true,"columnDefs":[{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+
+---
+
+## Example: Formatting rubric
+
+Add at least one **"general_feedback"** rubric item
+
+<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-620a6299d4fce2b69e6e" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-620a6299d4fce2b69e6e">{"x":{"filter":"none","vertical":false,"extensions":["FixedColumns"],"data":[["1","2","3","4","5","6","7"],["Question 1","Question 1","Question 2","Question 3","Question 3","all_questions","general_feedback"],["2","NA","2","3","NA",null,null],["1a","1b","1","1","3","0","0"],["Wrong # rows and cols","Misidentified obs","Default axes","Default axes","Didn't answer main question","Correct","Great job!"],["Wrong number of observations and variables. Each row is an observation and each column is a variable.","Misidentified observation, one observation is a bike rental.","Didn't change axis labels from default.","Didn't change axis labels from default.","Didn't answer if bike type seemed to vary by passholder type.","Correct","Great job!"],["-1","-1","-0.5","-0.5","-1","0",null]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>name<\/th>\n      <th>total_points<\/th>\n      <th>prompt_code<\/th>\n      <th>prompt_message<\/th>\n      <th>feedback<\/th>\n      <th>points_to_remove<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"dom":"t","scrollX":true,"fixedColumns":true,"columnDefs":[{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+
+---
+
+## Hands-on: prepare grading inputs (**15 min**)
+
+Apply the steps in the **example** slides to your own material (or the provided "grading practice" material) to create a roster and format your rubric
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script src="utils/cols_macro.js"></script>
+<script>var slideshow = remark.create({
+"ratio": "16:9",
+"highlightStyle": "solarized-light",
+"highlightLines": true,
+"countIncrementalSlides": true
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

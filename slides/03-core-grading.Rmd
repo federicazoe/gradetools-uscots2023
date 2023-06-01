@@ -31,41 +31,29 @@ class: middle, center
   </div>
 </div>
 
-
 ---
 
-class: middle, left
+class: left
 
-## Function call
+## Hands-on: grade! (**10 min**)
 
-To begin grading the assignments from the demo
+.pull-left[
+1. Use `assist_grading()` to **begin grading** your assignment, and **stop** grading after one question
+
+2. **Examine feedback file** & **grade sheet**
+
+3. Resume grading to **finish grading** an entire submission
+
+]
+
+--
+
+.pull-right[
+
 ```{r, eval = FALSE}
 assist_grading(
-  rubric_path = "rubric-full.csv", 
-  roster_path = "roster-minimal.csv", 
-  grading_progress_log_path = "quiz01-grading-progress-log.csv", 
-  final_grade_sheet_path = "quiz01-final-grade-sheet.csv", 
-  example_student_identifier = "BaronPoisson",
-  example_assignment_path = here::here("quiz01", "quiz01-BaronPoisson.Rmd"), 
-  example_feedback_path = here::here("quiz01", "quiz01-BaronPoisson-feedback.Rmd")
-)
-```
-
-
----
-
-class: middle, left
-
-## Hands-on session: using existing rubric items
-
-First grade one question, stop, and examine the feedback file.  
-Then resume grading and finish grading an entire submission.
-
-Example function call 
-```{r, eval = FALSE}
-assist_grading(
-  rubric_path = "rubric-full.csv", 
-  roster_path = "roster-minimal.csv", 
+  rubric_path = "rubric.csv", 
+  roster_path = "roster.csv", 
   grading_progress_log_path = "quiz01-grading-progress-log.csv", 
   final_grade_sheet_path = "quiz01-final-grade-sheet.csv", 
   example_student_identifier = "BaronPoisson",
@@ -73,3 +61,7 @@ assist_grading(
   example_feedback_path = "quiz01/quiz01-BaronPoisson-feedback.Rmd"
 )
 ```
+
+]
+
+

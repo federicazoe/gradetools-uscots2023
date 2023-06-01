@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>05-github.knit</title>
+    <meta charset="utf-8" />
+    <script src="libs/header-attrs-2.21/header-attrs.js"></script>
+    <link href="libs/panelset-0.2.6/panelset.css" rel="stylesheet" />
+    <script src="libs/panelset-0.2.6/panelset.js"></script>
+    <link rel="stylesheet" href="utils/style.css" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" type="text/css" />
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+
+class: middle, center
+
+# gradetools **+** GitHub
+
+---
+
+## Outline for this part
+
+- Why use GitHub for a course
+
+--
+
+- End-to-end GitHub course + gradetools:
+
+--
+
+  - Setting up a class on GitHub
+
+--
+
+  - Distributing work to students
+
+--
+  
+  - Collecting students' work
+  
+--
+
+  - Grading
+  
+--
+
+  - Distributing feedback to students
+
+---
+
+## Outline for this part
+
+.pull-left2[
+
+- Why use GitHub for a course
+
+- End-to-end GitHub course + gradetools:
+
+  - Setting up a class on GitHub
+
+  - Distributing work to students
+
+  - Collecting students' work
+  
+  - **Grading**
+  
+  - **Distributing feedback to students**
+]
+
+.pull-right2[
+
+&lt;img src="figures/gradetools-logo.png" alt="Hex logo of gradetools: a cat typing on a laptop that a gradebook and differently colored paper planes" width="100%" style="display: block; margin: auto;" /&gt;
+
+]
+
+
+  
+---
+class:  middle
+
+## Terminology &lt;sup&gt;1&lt;/sup&gt;
+.footnote[[1] based on GitHub Docs]
+
+**GitHub repository (repo)** - A folder/space on GitHub that contains all of a project's files and each file's revision history. 
+
+--
+
+**GitHub issue** - ways to plan work, track issues, and discuss projects goals.
+
+--
+
+**GitHub push** - action that results in changes made to repo on your laptop to be reflected online on GitHub (i.e. repo --&gt; GitHub)
+
+--
+
+**GitHub pull** - action that results in changes made to repo online on GitHub to be reflected on your laptop (i.e. GitHub --&gt; repo)
+
+---
+
+class: middle
+
+
+## Why use GitHub for a course?
+
+- reproducibility, version control, collaboration
+
+--
+
+- students can learn GitHub _by using it_
+
+--
+
+- we can easily share individualized feedback with students
+
+--
+
+- package [ghclass](https://rundel.github.io/ghclass/)&lt;sup&gt;1&lt;/sup&gt; makes it easy to manage courses on GitHub using R
+.footnote[[1] by Colin Rundel and Mine Cetinkaya-Rundel]
+
+
+---
+
+## GitHub for a course?
+
+.pull-left-small[
+
+Our favorite way:
+
+- One **GitHub _organization_** per course
+
+  (NOT GitHub _classroom_)
+
+
+]
+
+.pull-right-large[
+
+&lt;img src="figures/github-org.png" alt="Screenshot of GitHub webpage showing an organization with 'stats295r-fa20'. There are 14 repositories and 34 people in the organization." width="100%" style="display: block; margin: auto;" /&gt;
+
+]
+
+
+---
+
+## GitHub for a course?
+
+.pull-left-small[
+
+Our favorite way:
+
+- One repo per student, per week or assignment
+
+]
+
+.pull-right-large[
+
+&lt;img src="figures/github-org-repos.png" alt="Screenshot of repos in the organization 'stats295r-fa20' named 'week1-federicazoe', 'week2-federicazoe', 'week3-fedeericazoe' and so on." width="100%" style="display: block; margin: auto;" /&gt;
+
+]
+
+---
+
+## GitHub for a course?
+
+.pull-left-small[
+
+Our favorite way:
+
+- Quizzes and homework distributed and submitted in the repo
+
+]
+
+.pull-right-large[
+
+&lt;img src="figures/github-org-repo-inside.png" alt="screenshot of files included in the repo 'week1-federicazoe'. The list includes a mix of .R, .Rmd and .md files and a filed named '01f-homework.Rmd'." width="100%" style="display: block; margin: auto;" /&gt;
+
+]
+
+---
+
+## Github for class + gradetools for grades
+
+
+
+.panelset[
+.panel[.panel-name[1 Class setup]
+On **GitHub**:
+
+- 1.1 Create a new GitHub organization
+- 1.2 Create one repo for your week 1 assignments
+
+With **ghclass**:
+
+- 1.3 Invite students to your organization
+
+]
+
+.panel[.panel-name[2 Assigning work]
+With **ghclass**:
+
+- 2.1 Add an assignment to the week 1 repo 
+- 2.2 Automatically create a week 1 repo for each student
+]
+
+.panel[.panel-name[3 Grading]
+With **ghclass**
+
+- 3.1 Collect students' work
+
+With **gradetools**:
+
+- 3.2 Take notes of issues while grading
+
+- 3.3 Create issues in students (or team) repos
+
+- 3.4 Push feedback files
+
+]
+]
+
+---
+
+
+## 1. Class setup: GitHub
+
+.pull-left2[
+1.1 Create a new [GitHub organization](https://docs.github.com/en/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch).
+
+]
+
+.pull-right2[
+
+&lt;img src="figures/github-org-your-org.png" alt="screenshot of the portion of github website where it lists the options available for someone who has signed up, and the option 'Your organizations' is highlighted." width="80%" style="display: block; margin: auto;" /&gt;
+
+]
+
+
+---
+
+## 1. Class setup: GitHub
+
+
+1.1 Create a new [GitHub organization](https://docs.github.com/en/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)
+
+&lt;img src="figures/github-org-new.png" alt="screenshot of a portion of github website where we see Organizations and a button to crate a new organization, which is highlighted." width="100%" style="display: block; margin: auto;" /&gt;
+
+---
+
+## 1. Class setup: GitHub
+
+1.1 Create a new [GitHub organization](https://docs.github.com/en/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)
+
+&lt;img src="figures/github-org-free-org.png" alt="screenshot of a portion of github website where we see the button to create a free organization." width="40%" style="display: block; margin: auto;" /&gt;
+
+---
+
+## 1. Class setup: GitHub
+
+1.1 Create a new [GitHub organization](https://docs.github.com/en/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)
+
+&lt;img src="figures/github-org-setup-org.png" alt="screenshot of github website where we see how a organization is set up by specifying the organization account name, the contact email of the organization and whether the organization belongs to a personal account or to a business. These fields are filled-in for a organization named example-course-federicazoe, the email associated with it is fzricci@uci.edu and the option chosen is that the org belongs to a personal account." width="50%" style="display: block; margin: auto;" /&gt;
+
+---
+
+## 1. Class setup: GitHub
+
+1.1 Create a new [GitHub organization](https://docs.github.com/en/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)
+
+&lt;img src="figures/github-org-skip-step.png" alt="screenshot of github website where after the organization is created we could add members to it. The button Skip this step is highlighted." width="60%" style="display: block; margin: auto;" /&gt;
+
+
+---
+
+## 1. Class setup: GitHub 
+
+1.1 Create a new [GitHub organization](https://docs.github.com/en/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)
+
+&lt;img src="figures/github-org-created.png" alt="screenshot of newly created github organization 'example-course-federicazoe'. There are no repositories and the count of the number of people is 1." width="70%" style="display: block; margin: auto;" /&gt;
+
+---
+
+## 1. Class setup: GitHub 
+
+1.2 Create a repo for week 1 assignments in your organization   
+(e.g. week01-data-viz)
+
+&lt;img src="figures/github-org-create-repo.png" alt="Screenshot of GitHub webpage showing the option to create a new repository in our new organization example-course-federicazoe." width="100%" style="display: block; margin: auto;" /&gt;
+
+---
+
+## 1. Class setup: ghclass &lt;sup&gt;1&lt;/sup&gt;
+.footnote[[1] Much more info on [ghclass website](https://rundel.github.io/ghclass/articles/ghclass.html#structuring-your-class-on-github)]
+
+Install and load &lt;a href="https://rundel.github.io/ghclass/"&gt;ghclass&lt;/a&gt;.
+
+
+```r
+install.packages("ghclass")
+library(ghclass)
+```
+
+---
+
+## 1. Class setup: ghclass &lt;sup&gt;1&lt;/sup&gt;&lt;sup&gt;,2&lt;/sup&gt;
+.footnote[[1] Much more info on [ghclass website](https://rundel.github.io/ghclass/articles/ghclass.html#structuring-your-class-on-github); [2] Prerequisites: GitHub token setup]
+
+1.3 Invite students to the organization
+
+
+```r
+# Invite students to the organization using ghclass
+org_invite(org = "example-course-federicazoe", 
+           user = c("CatalinaMedina", "felipe-jones"))
+```
+
+
+```r
+#&gt; ✓ Invited user "CatalinaMedina" to org "example-course-federicazoe".
+#&gt; ✓ Invited user "felipe-jones" to org "example-course-federicazoe".
+```
+
+---
+
+## 2. Assign work: ghclass 
+
+2.1 Prepare template repo for one assignment: 
+  - Add assignment to this repo
+
+
+```r
+repo_add_file(
+  org_repos("example-course-federicazoe","week01-data-viz"),
+  message = "Add quiz on data visualization",
+  file = here::here("demonstration-materials/github-demo/quiz01-data-viz.Rmd")
+)
+```
+
+```r
+#&gt; ✓ Added file "quiz01-data-viz.Rmd" to repo "example-course-federicazoe/week01-data-viz".
+```
+---
+
+## 2. Assign work: ghclass 
+
+2.1 Prepare template repo for one assignment: 
+  - Set this repo as a template:
+  
+
+```r
+repo_set_template("example-course-federicazoe/week01-data-viz")
+```
+
+
+```r
+#&gt; ✓ Changed the template status of repo "example-course-federicazoe/week01-data-viz" to TRUE.
+```
+
+---
+
+## 2. Assign work: ghclass 
+
+2.2 Distribute assignment to students:
+
+
+```r
+org_create_assignment(
+  org = "example-course-federicazoe",
+  user = c("CatalinaMedina", "felipe-jones"),
+  repo = paste0("week01-data-viz-", c("CatalinaMedina", "felipe-jones")),
+  source_repo = "example-course-federicazoe/week01-data-viz",
+  private = TRUE
+)
+```
+
+
+```r
+#&gt; ✔ Mirrored repo "example-course-federicazoe/week01-data-viz" to repo "example-course-federicazoe/week01-data-viz-CatalinaMedina".
+#&gt; ✔ Mirrored repo "example-course-federicazoe/week01-data-viz" to repo "example-course-federicazoe/week01-data-viz-felipe-jones".
+#&gt; ✔ User "CatalinaMedina" given "push" access to repo "example-course-federicazoe/week01-data-viz-CatalinaMedina"
+#&gt; ✔ User "felipe-jones" given "push" access to repo "example-course-federicazoe/week01-data-viz-felipe-jones"
+```
+
+---
+
+## 3. Grading: ghclass 
+
+3.1 Collect students' work
+
+
+```r
+local_repo_clone(
+  repo = org_repos("example-course-federicazoe", "week01-data-viz"),
+  local_path = "demonstration-materials/github-demo/week01-data-viz"
+)
+```
+  
+
+```r
+#&gt; ✓ Cloned "example-course-federicazoe/week01-data-viz".
+#&gt; ✔ Cloned "example-course-federicazoe/week01-data-viz-CatalinaMedina".
+#&gt; ✔ Cloned "example-course-federicazoe/week01-data-viz-felipe-jones".
+```
+
+---
+
+class: middle, center
+
+&lt;div class="row"&gt;
+  &lt;div class="column_left"&gt;
+    &lt;img src="figures/final-diagram-left.png" alt="Snow" style="width:100%"&gt;
+  &lt;/div&gt;
+  &lt;div class="column_center"&gt;
+    &lt;img src="figures/final-diagram-center.png" alt="Below, a rounded rectangle of light blue color saying 'add new rubric items while grading'. Below, another rounded rectangle of light blue color saying 'give personalized feedback'. Below, another rounded rectangle of light blue color saying 'regrade specified questions and specified students'. Below, another rounded rectangle of light blue color saying 'take note of GitHub issues to be created in students' repos. At the bottom, a legend that says 'gradetools' and 'yellow' for core, 'additional' for light blue." style="width:100%"&gt;
+  &lt;/div&gt;
+  &lt;div class="column_right"&gt;
+    &lt;img src="figures/final-diagram-right.png" alt="The square where the outputs are listed is linked to text box that reads '3. Finalization', which is the header of a rounded transparent rectangle around two gray-filled rounded rectangles that read 'upload the grade sheet' and 'distribute the feedback'. Nested within this last gray rectangle there are two smaller light blue colored rectangles that read 'push feedback files to GitHub' and 'create issues in students'repos on GitHub'" style="width:100%"&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+---
+
+## 3. Grading: gradetools 
+
+3.2 Take notes of issues while grading
+
+
+```r
+*assist_advanced_grading(
+  rubric_path,
+  roster_path,
+  grading_progress_log_path,
+  final_grade_sheet_path,
+  example_assignment_path,
+  example_feedback_path,
+  example_student_identifier,
+*  github_issues = TRUE
+)
+```
+
+---
+
+## 3. Grading: gradetools 
+
+3.2 Take notes of issues while grading
+
+
+```r
+assist_advanced_grading(
+*  rubric_path,
+*  roster_path,
+*  grading_progress_log_path,
+*  final_grade_sheet_path,
+*  example_assignment_path,
+*  example_feedback_path,
+*  example_student_identifier,
+  github_issues = TRUE
+)
+```
+
+Note: the other arguments are the same as before.
+
+
+---
+
+## 3. Grading: gradetools 
+
+.pull-left-small[
+
+3.2 Take notes of issues while grading
+
+]
+
+.pull-right-large[
+
+&lt;img src="figures/github-take-note-issue.png" alt="screenshot of RStudio console with a grading prompt with an highlighted portion that says the prompt code 'i' corresponds to 'Take note of a GitHub issue (not push)'." width="100%" style="display: block; margin: auto;" /&gt;
+
+]
+
+---
+
+## 3. Grading: gradetools 
+
+.pull-left-small[
+
+3.2 Take notes of issues while grading
+
+]
+
+.pull-right-large[
+
+&lt;img src="figures/github-issue-title.png" alt="Screenshot of a R prompt to provide title of issue. Title provided is 'answer question for partial credit'." width="100%" style="display: block; margin: auto;" /&gt;
+
+]
+
+---
+
+## 3. Grading: gradetools 
+
+.pull-left-small[
+
+3.2 Take notes of issues while grading
+
+3.3 Create issues in students (or team) repos
+
+]
+
+.pull-right-large[
+
+&lt;img src="figures/github-issue-created.png" alt="screenshot of GitHub showing an issue titled 'Answer question for partial credit' and whose body says 'Push an updated submission by Monday June 5'." width="100%" style="display: block; margin: auto;" /&gt;
+
+]
+
+---
+
+## 3. Grading: gradetools 
+
+.pull-left-small[
+
+3.2 Take notes of issues while grading
+
+3.3 Create issues in students (or team) repos
+
+3.4 Push feedback files
+
+]
+
+.pull-right-large[
+
+&lt;img src="figures/github-pushed-feedback.png" alt="screenshot of RStudio console showing confirmation that three feedback files have been pushed to GitHub after running the function push_to_github()'." width="100%" style="display: block; margin: auto;" /&gt;
+
+]
+
+---
+
+## 3. Grading: gradetools 
+
+Create issues and push feedback files to GitHub
+
+
+```r
+*push_to_github(
+  grading_progress_log_path,
+  class_github_name,
+  example_identifier,
+  example_github_repo,
+*  push_feedback = TRUE,
+*  create_issues = TRUE
+)
+```
+
+---
+
+## 3. Grading: gradetools 
+
+Create issues and push feedback files to GitHub
+
+
+```r
+push_to_github(
+*  grading_progress_log_path,
+  class_github_name,
+  example_identifier,
+  example_github_repo,
+  push_feedback = TRUE,
+  create_issues = TRUE
+)
+```
+
+Where grading log was stored while grading.
+
+---
+
+## 3. Grading: gradetools 
+
+Create issues and push feedback files to GitHub
+
+
+```r
+push_to_github(
+  grading_progress_log_path,
+*  class_github_name,
+  example_identifier,
+  example_github_repo,
+  push_feedback = TRUE,
+  create_issues = TRUE
+)
+```
+
+The name of the GitHub organization (e.g. `example-course-federicazoe`).
+
+---
+
+## 3. Grading: gradetools 
+
+Create issues and push feedback files to GitHub
+
+
+```r
+push_to_github(
+  grading_progress_log_path,
+  class_github_name,
+*  example_identifier,
+  example_github_repo,
+  push_feedback = TRUE,
+  create_issues = TRUE
+)
+```
+
+An example GitHub identifier (e.g. `CatalinaMedina`).
+
+---
+## 3. Grading: gradetools 
+
+Create issues and push feedback files to GitHub
+
+
+```r
+push_to_github(
+  grading_progress_log_path,
+  class_github_name,
+  example_identifier,
+*  example_github_repo,
+  push_feedback = TRUE,
+  create_issues = TRUE
+)
+```
+
+An example GitHub repo for the assignment (e.g. `week01-data-viz-CatalinaMedina`).
+
+---
+## 3. Grading: gradetools 
+
+Create issues and push feedback files to GitHub
+
+
+```r
+push_to_github(
+  grading_progress_log_path = "grade-log.csv",
+  class_github_name = "example-course-federicazoe",
+  example_identifier = "CatalinaMedina",
+  example_github_repo = "week01-data-viz-CatalinaMedina",
+  push_feedback = TRUE,
+  create_issues = TRUE
+)
+```
+
+
+```r
+#&gt; ✔ Added file "quiz01-feedback.Rmd" to repo "example-course-federicazoe/week01-data-viz-CatalinaMedina".
+#&gt; ✔ Created issue "Submit for partial credit" for repo "example-course-federicazoe/week01-data-viz-CatalinaMedina".
+```
+
+---
+
+class: middle, center
+
+&lt;div class="row"&gt;
+  &lt;div class="column_left"&gt;
+    &lt;img src="figures/final-diagram-left.png" alt="Snow" style="width:100%"&gt;
+  &lt;/div&gt;
+  &lt;div class="column_center"&gt;
+    &lt;img src="figures/final-diagram-center.png" alt="Below, a rounded rectangle of light blue color saying 'add new rubric items while grading'. Below, another rounded rectangle of light blue color saying 'give personalized feedback'. Below, another rounded rectangle of light blue color saying 'regrade specified questions and specified students'. Below, another rounded rectangle of light blue color saying 'take note of GitHub issues to be created in students' repos. At the bottom, a legend that says 'gradetools' and 'yellow' for core, 'additional' for light blue." style="width:100%"&gt;
+  &lt;/div&gt;
+  &lt;div class="column_right"&gt;
+    &lt;img src="figures/final-diagram-right.png" alt="The square where the outputs are listed is linked to text box that reads '3. Finalization', which is the header of a rounded transparent rectangle around two gray-filled rounded rectangles that read 'upload the grade sheet' and 'distribute the feedback'. Nested within this last gray rectangle there are two smaller light blue colored rectangles that read 'push feedback files to GitHub' and 'create issues in students'repos on GitHub'" style="width:100%"&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+---
+
+class: middle
+
+## Thank you for your time!
+
+- Please let us know any suggestions for gradetools: [feedback form](https://forms.gle/MwyxmT6zEf9tokCM9) 
+
+&lt;img src="figures/feedback-qr-code.png" alt="QR code linking to feedback form above" width="10%" style="display: block; margin: auto;" /&gt;
+
+- Keep an eye out for the gradetools manuscript (in progress), which describes our package from a development viewpoint
+- For more information and practice visit the gradetools website (https://federicazoe.github.io/gradetools/)
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script src="utils/cols_macro.js"></script>
+<script>var slideshow = remark.create({
+"ratio": "16:9",
+"highlightStyle": "solarized-light",
+"highlightLines": true,
+"countIncrementalSlides": true
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

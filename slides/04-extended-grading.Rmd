@@ -27,7 +27,7 @@ class: middle, center
     <img src="figures/final-diagram-center-blue-2.png" alt="Below, a rounded rectangle of light blue color saying 'add new rubric items while grading'. Below, another rounded rectangle of light blue color saying 'give personalized feedback'. Below this last rounded rectangle, some blank space as if more rectangles are still not shown. At the bottom, a legend that says 'gradetools' and 'yellow' for core, 'additional' for light blue." style="width:100%">
   </div>
   <div class="column_right">
-    <img src="figures/final-diagram-right-3.png" alt="" style="width:100%">
+    <img src="figures/final-diagram-right-3.png" alt="A box labeled outputs with two bullet points: grade sheet and feedback files." style="width:100%">
   </div>
 </div>
 
@@ -55,16 +55,18 @@ class: middle
 
 class: middle
 
-## Editing the rubric 
+## Modifying the rubric 
 
-- Prompt messages, feedback messages, and points to remove/add call all be edited directly in the rubric
-- Changes would be reflected once the grading function is rerun
+- Prompt messages, total points and points to remove **can be modified** directly in the rubric
+- Changes **would be reflected** once the grading function is rerun
 
 --
 
-<span style="color: orange;">
-  Prompt codes cannot ever be changed because they are used to store grading progress
-</span>
+- Even on students that have already been graded!
+
+--
+
+`r fontawesome::fa(name = "exclamation-triangle")` **Prompt codes cannot ever be changed because they are used to store grading progress**
 
 ---
 
@@ -92,28 +94,65 @@ Or to the assignment overall
 
 class: middle
 
-## Hands-on session: using extra prompt options
+## Hands-on: extra prompt options (**10 min**)
 
-- Grade another submission to practice adding rubric items and writing personalized feedback where appropriate
+- Go back to the **same grading practice** you used before
+- Grade at least one other student submission to **practice adding rubric items** and **writing personalized feedback** where appropriate
 - Note: Running the same `assist_grading()` call will resume grading progress
+
+---
+
+class: middle, center
+
+<div class="row">
+  <div class="column_left">
+    <img src="figures/final-diagram-left-4.png" alt="" style="width:100%">
+  </div>
+  <div class="column_center">
+    <img src="figures/final-diagram-center-blue-2.png" alt="Below, a rounded rectangle of light blue color saying 'add new rubric items while grading'. Below, another rounded rectangle of light blue color saying 'give personalized feedback'. Below, another rounded rectangle of light blue color saying 'regrade specified questions and specified students'. Below this last rounded rectangle, some blank space as if more rectangles are still not shown. At the bottom, a legend that says 'gradetools' and 'yellow' for core, 'additional' for light blue." style="width:100%">
+  </div>
+  <div class="column_right">
+    <img src="figures/final-diagram-right-3.png" alt="" style="width:100%">
+  </div>
+</div>
+
+---
+
+
+class: middle, center
+
+<div class="row">
+  <div class="column_left">
+    <img src="figures/final-diagram-left-4.png" alt="" style="width:100%">
+  </div>
+  <div class="column_center">
+    <img src="figures/final-diagram-center-blue-3.png" alt="Below, a rounded rectangle of light blue color saying 'add new rubric items while grading'. Below, another rounded rectangle of light blue color saying 'give personalized feedback'. Below, another rounded rectangle of light blue color saying 'regrade specified questions and specified students'. Below this last rounded rectangle, some blank space as if more rectangles are still not shown. At the bottom, a legend that says 'gradetools' and 'yellow' for core, 'additional' for light blue." style="width:100%">
+  </div>
+  <div class="column_right">
+    <img src="figures/final-diagram-right-3.png" alt="" style="width:100%">
+  </div>
+</div>
 
 ---
 
 ## Selective grading 
 
-- `assist_advanced_grading()` operates identically to `assist_grading()`, with a few extra options
+- **`assist_advanced_grading()`** operates identically to `assist_grading()`, with a few extra options
 
 --
 
-- One extra is the ability to specify which students and which questions to grade
-  - E.g. grade question 1 for all students
+- One extra ability is grading only:
+
+  - **specified students** (`student_identifier` from roster)
   
 --
 
-- These arguments are specified as character vectors
-  - `questions_to_grade` must be question names present in rubric
-  - `students_to_grade` must be student identifiers present in roster
+  - **specified questions** (`name` from rubric )
+  
+--
 
+  - e.g. grade question 1 for all students
+  
 ---
 
 class: middle
@@ -122,8 +161,8 @@ class: middle
 
 ```{r, eval = FALSE}
 assist_advanced_grading(
-  rubric_path = "rubric-full.csv", 
-  roster_path = "roster-minimal.csv", 
+  rubric_path = "rubric.csv", 
+  roster_path = "roster.csv", 
   grading_progress_log_path = "quiz01-grading-progress-log.csv", 
   final_grade_sheet_path = "quiz01-final-grade-sheet.csv", 
   example_student_identifier = "BaronPoisson",
@@ -136,9 +175,11 @@ assist_advanced_grading(
 
 ---
 
+class: middle
+
 ## Regrading
 
-- `assist_regrading()` allows graders to specify which students and questions to regrade
+- **`assist_regrading()`** allows graders to specify which students and questions to **regrade**
 
 --
 
@@ -146,7 +187,8 @@ assist_advanced_grading(
 
 --
 
-- If this process is interrupted, only the questions for the students the grader did regrade will have changed
+- Grades and feedback for students who have not been regraded won't change 
+
 
 ---
 
@@ -158,7 +200,7 @@ Regrading example
 
 ```{r, eval = FALSE}
 assist_regrading(
-  rubric_path = "rubric-full.csv", 
+  rubric_path = "rubric.csv", 
   grading_progress_log_path = "quiz01-grading-progress-log.csv", 
   final_grade_sheet_path = "quiz01-final-grade-sheet.csv",
   {{questions_to_regrade = c("Question 1", "Question 2"), }}
@@ -166,13 +208,13 @@ assist_regrading(
 )
 ```
 
-Regrade either 2 questions for one student or 1 question for two students.
+Regrade 2 questions for one student.
 
 ---
 
 ## Multiple submissions per student
 
-The grading functions allow the provided assignment path to be a vector
+The provided assignment path can be a **vector**!
 
 --
 
@@ -192,53 +234,71 @@ example_assignment_path = c(
 
 ---
 
+class: middle 
+
 ## Team grading with `assist_team_grading()`
 
-.pull-left[
-- For the case of multiple students per submission (e.g. group project)
-- Students on a team share a feedback file and score
 
-]
+- For the case of **multiple students per submission** (e.g. group project)
 
-.pull-right[
+--
 
-]
+- Students on a team **share** a feedback file and score
 
 
 ---
 
-## Team grading with `assist_team_grading()`
+class: middle 
 
-.pull-left[
-- For the case of multiple students per submission (e.g. group project)
-- Students on a team share a feedback file and score
+## Differences when grading teams
 
-]
 
-.pull-right[
-- Roster must have both student and team identifiers  
+- Roster must have **both** student and team identifiers  
 
-]
+| student_identifier | team_identifier |
+|--------------------|-----------------|
+| federicazoe        | gamma           |
+| CatalinaMedina     | gamma           |
+| mdogucu            | poisson         |
 
-<img src="figures/team-roster.png" alt="A picture of a csv with a column of student identifiers and a column of team identifiers. federicazoe and Catalina Medina is on team gamma while mdogucu is on team poisson." style="width:40%;">
 
 ---
 
-## Team grading with `assist_team_grading()`
+class: middle 
 
-.pull-left[
-- For the case of multiple students per submission (e.g. group project)
-- Students on a team share a feedback file and score
+## Differences when grading teams
 
-]
+- `assist_team_grading()` uses team_identifier **instead of** student_identifier
 
-.pull-right[
-- Roster must have both student and team identifiers
+--
+
 - Team identifier must be present and only unique part of assignment and feedback paths
-]
 
 ```{r, eval = FALSE}
 example_team_identifier = "gamma"
-example_assignment_path = "final-projects/team-gamma/presentation.Rmd"
-example_feedback_path = "final-projects/team-gamma/feedback.Rmd"
+example_assignment_path = "final-projects/gamma/presentation.Rmd"
+example_feedback_path = "final-projects/gamma/feedback.Rmd"
 ```
+
+
+---
+
+class: middle 
+
+
+## Team grading with `assist_team_grading()`
+
+```{r, eval = FALSE}
+
+{{assist_team_grading( }}
+  rubric_path = "project-rubric.csv", 
+  {{roster_path = "roster-team", }}
+  grading_progress_log_path = "project-grade-log.csv",
+  final_grade_sheet_path = "project-grade-book.csv",
+  {{example_team_identifier = "gamma", }}
+  {{example_assignment_path = "final-projects/gamma/presentation.Rmd", }}
+  {{example_feedback_path = "final-projects/gamma/feedback.Rmd" }}
+)
+
+```
+
