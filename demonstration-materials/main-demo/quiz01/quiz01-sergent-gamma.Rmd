@@ -1,0 +1,67 @@
+---
+title: "Quiz 1: Data Visualization"
+author: "Sergent Gamma"
+output: html_document
+---
+
+As soon as you open this document, you should knit it to make sure it knits.
+
+```{r message=FALSE}
+library(tidyverse)
+library(openintro)
+library(ggplot2)
+options(scipen=10000)
+metro_bike <- read_csv("data/metro-bike.csv")
+```
+
+The following questions will be based on the bike rental data in Los Angeles. The data represents all bike rides from Metro Bike Share company in April-June of 2019. 
+
+The data and a description of each variable can be found at (https://bikeshare.metro.net/about/data/).
+
+Throughout the homework, make sure you use a reasonable font size and label axes. You are welcome to use colors and themes whenever you would like. Adhere to tidyverse style guide.
+
+## Question 1
+
+How many observations and variables are there? What does each observation represent? Answer with inline code when appropriate.
+
+```{r}
+glimpse(metro_bike)
+```
+
+There are 64,555 observations and 15 variables. One variable represents a person's bike rental trip.
+
+## Question 2
+
+Make a plot that shows the number of rentals by each pass type.
+
+```{r}
+metro_bike %>% 
+  ggplot() +
+  aes(x = passholder_type, fill = passholder_type) +
+  geom_bar() +
+  xlab("Passholder Type") +
+  ylab("Count") +
+  ggtitle("Metro Bike Share Passholder Type for April - June of 2019") +
+  guides(fill = guide_legend(title = "Passholder type")) +
+  theme_bw()
+```
+
+
+## Question 3
+
+Does bike type preference seem to vary by passholder type? Make a plot and refer to it in your answer to this question.
+
+
+```{r}
+metro_bike %>% 
+  ggplot() +
+  aes(x = passholder_type, fill = bike_type) +
+  geom_bar(position="fill") +
+  xlab("Passholder Type") +
+  ylab("Percent of rentals") +
+  ggtitle("Metro Bike Share Passholder Type by Bike Type for April - June of 2019") +
+  guides(fill = guide_legend(title = "Bike Type")) +
+  theme_bw()
+```
+
+Yes, bike type preference does seem to vary by passholder type. Overall, standard bike are preferred, aside from testing. One day passholders and walk-ups rent more smart than electric bikes, whereas the opposite is true for annual and monthly pass holders.

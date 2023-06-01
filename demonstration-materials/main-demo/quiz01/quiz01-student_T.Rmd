@@ -1,0 +1,36 @@
+---
+title: "Quiz 1: Data Visualization"
+author: "Student T"
+output: html_document
+---
+
+As soon as you open this document, you should knit it to make sure it knits.
+
+```{r message=FALSE}
+library(tidyverse)
+library(openintro)
+library(ggplot2)
+options(scipen=10000)
+metro_bike <- read_csv("data/metro-bike.csv")
+```
+
+The following questions will be based on the bike rental data in Los Angeles. The data represents all bike rides from Metro Bike Share company in April-June of 2019. 
+
+The data and a description of each variable can be found at (https://bikeshare.metro.net/about/data/).
+
+Throughout the homework, make sure you use a reasonable font size and label axes. You are welcome to use colors and themes whenever you would like. Adhere to tidyverse style guide.
+
+## Question 1
+
+How many observations and variables are there? What does each observation represent? Answer with inline code when appropriate.
+
+
+## Question 2
+
+Make a plot that shows the number of rentals by each pass type.
+
+## Question 3
+
+Does bike type preference seem to vary by passholder type? Make a plot and refer to it in your answer to this question.
+
+

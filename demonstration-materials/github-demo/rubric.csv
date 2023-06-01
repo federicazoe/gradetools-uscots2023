@@ -1,0 +1,9 @@
+name,total_points,prompt_code,prompt_message,feedback,points_to_remove
+Question 1,2,1a,Wrong # of rows and columns,"Each row is an observation and each column is a variable, so there are 64,545 observations and 15 variables.",1
+Question 1,,1b,Misidentified observation,A single observation in this data set represents a single bike rental.,1
+Question 2,2,1a,Default axis labels,Make sure to change the axis labels from the default to informative labels.,0.5
+Question 3,3,1a,Default axis labels,Make sure to change the axis labels from the default to informative labels.,0.5
+Question 3,,2a,Didn't answer question,"This question asked if bike type seemed to vary by passholder type, and you did not explicitly answer the question.",1
+all_questions,,404,Unanswered,This question was left unanswered.,100
+all_questions,,100,Correct,Correct,0
+general_feedback,,100,Great job!,Great job!,
